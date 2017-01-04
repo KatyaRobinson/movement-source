@@ -38,7 +38,8 @@ hr {
 }
 
 .brand,
-.address-bar {
+.contact,
+.logo {
     display: none;
 }
 
@@ -55,7 +56,7 @@ hr {
 }
 
 .navbar-nav>li>a:hover {
-    color: #1E9780!important;
+    color: #A52A2A!important;
     font-weight:bold;
 }
 
@@ -128,10 +129,14 @@ footer p {
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 5em;
+        font-size: 2em;
         font-weight: 700;
         line-height: normal;
         color: #fff;
+    }
+
+    .logo {
+        display:inherit;
     }
 
     .top-divider {
@@ -143,6 +148,10 @@ footer p {
         margin-right: 25px;
     }
 
+    .contact {
+        display: inherit;
+    }
+
     .address-bar {
         display: inherit;
         margin: 0;
@@ -150,10 +159,12 @@ footer p {
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         text-transform: uppercase;
-        font-size: 1.25em;
-        font-weight: 400;
+        font-size: 0.7em;
+        font-weight: 200;
         letter-spacing: 3px;
         color: #fff;
+        padding-top: 50px;
+        padding-right:15px;
     }
 
     .navbar {
@@ -198,3 +209,109 @@ footer p {
         clear: both;
     }
 }
+
+/* Custom stylesheet */
+
+.service-box{
+    height: 250px;
+    width: 250px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius:50%;
+    margin: 0 auto;
+    background-image: url(../img/slide-1.png);
+}
+
+.service-box span {
+    position: relative;
+    top: 45%;
+}
+
+/*color: #1E9780*/
+
+#publication-img {
+    height: 100px;
+    background-color: teal;
+    color: white;
+}
+
+.service-info {
+    padding: 20px;
+}
+
+button {
+    width: 50%;
+    display: block!important;
+    margin: 0 auto;
+    background-color: #A52A2A;
+    color: white;
+    height: 48px;
+    text-transform: uppercase;
+    }
+
+ button:hover{
+    font-weight: bold;
+    color: white!important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    background-color: #A52A2A;
+ }   
+
+
+.header-row {
+    background-color: rgba(0, 128, 128, 0.6);
+}
+
+.logo {
+    padding-left: 15%;
+}
+
+.brand>span {
+    display: block;
+    clear: both;
+    font-weight: normal;
+    font-size: 0.5em;
+}
+
+.contact-btn {
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 37px;
+    color: #000;
+    height: 48px;
+}
+
+.contact-btn:hover {
+    color: white;
+    font-weight: bold;
+    border: 2px solid #fff;
+
+}
+
+.box-sepia {
+    background-color: rgba(255, 250, 218, 0.9);
+}
+
+.kelly-img > img {
+    float: right;
+}
+
+.divider{
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    padding: 10px 0;
+    height: 20px;
+    width: 300px;
+    background-image: url(../img/divider.png);
+    background-size: contain;
+}
+
+
+
+
+
+
+
