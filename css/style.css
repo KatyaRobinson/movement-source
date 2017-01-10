@@ -3,6 +3,14 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+ /*  
+Colors used:
+
+Grey #777777
+Maroon #A52A2A
+
+ */
 @import url('https://fonts.googleapis.com/css?family=Cookie|Raleway');
 
 
@@ -199,7 +207,7 @@ footer p {
     }
 
     .nav>li>a {
-        padding: 35px;
+        padding: 33px;
     }
 
     .navbar-nav>li>a {
@@ -404,5 +412,18 @@ li {
 
 .readMore:hover {
     border: none;
+}
+
+.promo {
+    background-color: #A52A2A;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.promo>a {
+    color: white;
+    text-decoration: underline;
 }
 
