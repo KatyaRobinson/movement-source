@@ -3,9 +3,12 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css?family=Cookie|Raleway');
+
 
 body {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: 'Raleway', sans-sefir;
    background: url('../img/bg-1.jpg') no-repeat center center fixed; 
   /* background-color: #1E9780; */
     -webkit-background-size: cover;
@@ -21,7 +24,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+   /* font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -35,6 +38,10 @@ p {
 hr {
     max-width: 400px;
     border-color: #999999;
+}
+
+a:hover{
+    text-decoration: none!important;
 }
 
 .brand,
@@ -53,6 +60,8 @@ hr {
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 3px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 .navbar-nav>li>a:hover {
@@ -76,6 +85,7 @@ hr {
 .brand-name {
     margin: 0;
     font-size: 4em;
+    font-family: 'Cookie', cursive;
 }
 
 .tagline-divider {
@@ -88,7 +98,7 @@ hr {
     margin-bottom: 20px;
     padding: 30px 15px;
     background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     overflow: hidden; /* edited */
 
 }
@@ -114,6 +124,7 @@ hr {
 footer {
     background: #fff;
     background: rgba(255,255,255,0.9);
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 footer p {
@@ -125,11 +136,11 @@ footer p {
     .brand {
         display: inherit;
         margin: 0;
-        padding: 30px 0 10px;
+        padding: 0px 0 10px;
         text-align: center;
         text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 2em;
+        font-family: 'Cookie', cursive;        
+        font-size: 4em;
         font-weight: 700;
         line-height: normal;
         color: #fff;
@@ -137,6 +148,8 @@ footer p {
 
     .logo {
         display:inherit;
+         padding-left: 15%;
+         padding-top: 12px;
     }
 
     .top-divider {
@@ -218,29 +231,31 @@ footer p {
     border: 1px solid black;
     text-align: center;
     border-radius:50%;
-    margin: 0 auto;
+    margin: 10px auto;
     background-image: url(../img/slide-1.png);
 }
 
-.service-box span {
-    position: relative;
-    top: 45%;
-    color: white;
+.service-info>span {
+    display: block;
     text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    color: #A52A2A;
+    font-weight: bold;
 }
 
 /*color: #1E9780*/
 
 #publication-img {
-    height: 100px;
-    background-color: teal;
+    height: 148px;
     color: white;
+    background-image: url(../img/philly_mag_logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .service-info {
     padding: 20px;
-    height: 120px;
+    font-size: 1.25em;
 }
 
 button {
@@ -281,10 +296,11 @@ button {
     background-color: transparent;
     border: 1px solid #000;
     border-radius: 5px;
-    padding: 5px;
+    padding: 12px;
     margin-top: 37px;
     color: #000;
-    height: 48px;
+    height: 46px;
+    width: auto;
 }
 
 .contact-btn:hover {
@@ -325,8 +341,9 @@ button {
 }
 
 li {
-    font-size: 16px;
+    font-size: 1.25em;
     list-style-type: initial;
+    line-height: 1.6;
 }
 
 
@@ -354,9 +371,38 @@ li {
 
 }
 
+.apptBtn {
+    width: 400px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+}
 
+.main-text {
+    font-size: 1.25em;
+}
 
+.list>span {
+    display: block;
+    margin-left: 10px;
+    font-size: 0.9em;
+}
 
+#quote-img{
+    margin: 7px;
+    border: 7px black solid;
+}
 
+.readMore {
+   display: block;
+    width: 50%;
+    margin: 0 auto;
+    background-color: transparent;
+    color: #777777;
+    border: 2px #777777 solid;
+}
 
+.readMore:hover {
+    border: none;
+}
 
