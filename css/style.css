@@ -96,6 +96,10 @@ a:hover{
     font-family: 'Cookie', cursive;
 }
 
+.brand>a {
+    color: white;
+}
+
 .tagline-divider {
     margin: 15px auto 3px;
     max-width: 250px;
@@ -426,4 +430,47 @@ li {
     color: white;
     text-decoration: underline;
 }
+
+
+.class-times >li {
+    display: inline-block;
+    padding-bottom: 6px;
+
+}
+
+.class-times::before {
+    content: "Class times: ";
+     color: #777777;
+     font-size: 1.25em;
+    line-height: 1.6;
+
+}
+
+.class-times>li:not(:last-child)::after {
+    content: ' |';
+    color: #777777;
+}
+
+.price::before {
+    content: 'Class price: ';
+    color: #777777;
+}
+
+.class-duration::before {
+    content: 'Class duration: ';
+    color: #777777;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
