@@ -10,6 +10,11 @@ Colors used:
 Grey #777777
 Maroon #A52A2A
 
+Fonts used: ;
+
+Raleway - body, main text
+Cookie - header, logo
+
  */
 @import url('https://fonts.googleapis.com/css?family=Cookie|Raleway');
 
@@ -461,7 +466,45 @@ li {
     color: #777777;
 }
 
+/* Datepicker styles */
+.ui-datepicker-header {
+    background-color: #A52A2A;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
 
+.ui-icon, .ui-widget-content .ui-icon {
+    background-image:url();
+}
+
+.ui-datepicker-calendar {
+    font-family: 'Raleway', sans-serif;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    background-color: #286090;
+    border: 2px solid #286090;
+    color: white;
+}
+
+
+
+.ui-datepicker-prev::before {
+    content: "<";
+     color: white;
+    padding-left: 9px;
+}
+
+.ui-datepicker-prev:hover, .ui-datepicker-next:hover {
+    background-color: #EA7777;
+    border: none;
+} 
+
+.ui-datepicker-next::before {
+    content: ">";
+     color: white;
+    padding-left: 9px;
+}
 
 
 

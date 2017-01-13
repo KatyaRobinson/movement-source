@@ -31,13 +31,58 @@
    
 </head>
 
-<script> 
-   $(function(){
-    $("#headerDiv").load("header.html");
-   });  
-</script>
 
-<div id="headerDiv"></div>
+
+<body>
+
+    <div class="row header-row">
+            <div class="col-sm-3 logo">
+                <a href="index.html">
+                <img src="./img/logo.png" width="100px"> </a>
+            </div>
+
+            <div class="col-sm-6 brand"><a href = "index.html">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
+            <div class="col-sm-3 contact"> <button class="contact-btn">Contact Us</button>
+            </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Movement Source</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="services.html">Services</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
     <div class="container">
 
         <!-- top box with slideshow and intro text-->
