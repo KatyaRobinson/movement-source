@@ -21,13 +21,26 @@
       <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+     <!--jQuery UI-->
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
         <script type="text/javascript">
-                        $(function(){
-                         $("#groupClassRequest").click(function(){
-                         $("#schedule-appt").load("book.html");
-                              });
-                          }
-                          )
+            $(function(){
+
+                // when the Secure My Appt button is clicked 
+                $("#groupClassRequest").click(function(){
+                 // the calendar from book.html loads   
+                $("#schedule-appt").load("book.html").toggle('slow');
+                // button text changes to "Close Calandar"
+                $(this).text("Close Calendar");
+                // the page scrolls down to the calendar
+                $("body, html").animate({ 
+                     scrollTop: $(this).offset().top 
+                     }, 600);
+            });
+
+            })
     </script>
     
 </head>
