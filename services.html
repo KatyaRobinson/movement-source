@@ -25,24 +25,22 @@
    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+    <!-- Book javascript link-->
+    <script src="js/book.js"></script>
+
         <script type="text/javascript">
             $(function(){
 
                 // when the Secure My Appt button is clicked 
                 $("#groupClassRequest").click(function(){
-                 // the calendar from book.html loads   
-                $("#schedule-appt").load("book.html").toggle('slow');
-                // button text changes to "Close Calandar"
-                $(this).text("Close Calendar");
-                // the page scrolls down to the calendar
                 $("body, html").animate({ 
-                     scrollTop: $(this).offset().top 
+                     scrollTop: $('#calendar').offset().top 
                      }, 600);
             });
 
             })
     </script>
-    
+   
 </head>
 
 
@@ -77,6 +75,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    <span id="nav-logo">
+                        <a href="index.html">
+                        <img src="./img/logo.png"> </a>
+                    </span>
                     <li>
                         <a href="index.html">Home</a>
                     </li>
@@ -95,6 +97,7 @@
         </div>
         <!-- /.container -->
     </nav>
+    
 
     <div class="container">
 
@@ -130,7 +133,8 @@
                     <button class="btn readMore" id="groupClassRequest">Secure My Spot</button>
 
                     <hr>
-                    <div id="schedule-appt"></div>
+
+
                 </div>
 
 <!--Private and semi-private classes-->
@@ -254,8 +258,114 @@
             </div>
         </div>
 
+        <!--calendar for making appointments-->
+        
+        <div class="container" id ="calendar">
+        <div class="row">
+    <div class="box">
+           <!--Book Appointment form-->
+        <form class="form-horizontal">
+                <fieldset>
+
+                <!-- Form Name -->
+                <legend>Request Appointment</legend>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="selectservice">Select Service</label>
+                  <div class="col-md-6">
+                    <select id="selectservice" name="selectservice" class="form-control">
+                      <option value="1">See All Services</option>
+                      <option value="2">Group Lesson</option>
+                      <option value="1">Personal Lessons</option>
+                      <option value="2">Service 4</option>
+                    </select>
+                  </div>
+                </div>
+                    <div class="form-group">
+                         <label class="col-md-3 control-label" for="selectdate">Select Date</label>
+                         <div class="col-md-6">
+                           
+                                <div id="datepicker"></div>
+                                <div id="chosenDate"></div>
+                         </div>     
+                       </div>  
+                       <div class="form-group">
+                        <label class="col-md-3 control-label" id = "timeLabel" for="selecttime"></label>
+
+                        <div id="schedule" class="col-md-6">
+                            <ul id="monday" class="dayOfWeek">
+                                <li>7:00AM </li>
+                                <li>8:00AM</li>
+                                <li class = "group-class">9:00AM </li>
+                                <li>11:00AM</li>
+                                <li>12:00PM</li>
+                            </ul>
+
+                            <ul id="tuesday" class="dayOfWeek">
+                                <li>6:00AM </li>
+                                <li class="group-class">8:00AM</li>
+                                <li>9:00AM </li>
+                                <li>11:00AM</li>
+                                <li>12:00PM</li>
+                            </ul>
+
+                            <ul id="wednesday" class="dayOfWeek">
+                                <li>12:00PM</li>
+                                <li class="group-class">1:00PM </li>
+                                <li>2:00PM </li>
+                                <li>5:00PM</li>
+                                <li>6:00PM</li>
+                            </ul>
+
+                            <ul id="thursday" class="dayOfWeek">
+                                <li>6:00AM </li>
+                                <li>8:00AM</li>
+                                <li>9:00AM </li>
+                                <li>11:00AM</li>
+                                <li>12:00PM</li>
+                            </ul>
+
+                            <ul id="friday" class="dayOfWeek">
+                                <li>6:00AM </li>
+                                <li>8:00AM</li>
+                                <li>9:00AM </li>
+                                <li>11:00AM</li>
+                                <li>12:00PM</li>
+                            </ul>
+
+                            <ul id="weekend" class="dayOfWeek">
+                                <span>Sorry, no available appointments </span>
+                            </ul>
+
+                        </div>
+
+                  </div> 
+                     
+                       
+                        <!-- After service, date, and time slots were chosen, this button loads the Customer Info section of the form and the button gets repositioned to the very bottom of the form -->
+
+                        <button id="submit-btn" class="btn btn-primary">Continue</button>
+                        <div id="customer-info"></div>
+
+                         <script type="text/javascript">
+                              $("#submit-btn").on('click', (function(e){
+                                e.preventDefault();
+                              $("#customer-info").load("customer-info.html");
+                               $(this).css("display", "none");
+                                }));
+                        </script>
+
+                </fieldset>
+         </form>
     </div>
+    </div> 
     <!-- /.container -->
+
+    </div><!-- end container -->
+        <!--end calendar for making appointments-->
+
+   
 
    <script> 
    $(function(){

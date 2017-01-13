@@ -506,6 +506,15 @@ li {
     padding-left: 9px;
 }
 
+#nav-logo {
+    display: inline-block;
+    left: 5%;
+    position: absolute;
+}
+
+#nav-logo>a>img {
+    width:75px;
+}
 
 
 
