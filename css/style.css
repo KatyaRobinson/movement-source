@@ -138,10 +138,24 @@ a:hover{
     margin: 0 auto 0;
 }
 
+/*footer styles*/
+
+.span-block>span {
+        display: block;
+        clear: both;
+        font-size: 1.2em;
+        text-transform: uppercase;
+    }
+    #copy{
+        font-size: 0.7em;
+    }
+
+
 footer {
     background: #fff;
     background: rgba(255,255,255,0.9);
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 20px 0;
 }
 
 footer p {
