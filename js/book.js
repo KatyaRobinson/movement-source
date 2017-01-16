@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-          var $windowWidth = $(window).width();
-          var wrapper = $("#wrapper");
 
           // hide  nav logo which only appears when nav gets stuck to top on scrolling down
           $("#nav-logo").hide();
@@ -76,32 +74,29 @@ $(document).ready(function(){
 
         // change padding of wrapper on load depending on the window width
           $(function(){
-            if ($windowWidth < 1713 && $windowWidth > 761){
-              console.log("padding added");
-              wrapper.css("padding-left", 250);
-            }
-
-           else if ($windowWidth > 1713 || $windowWidth < 761){
-              console.log("padding removed");
-              wrapper.css("padding-left", 0);
-            }
-
+            Resize();
           });
 
     // move container on page resize to accomodate for sidevar menu
           $(window).resize(function(){
-            console.log($windowWidth);
-            if ($windowWidth < 1670 && $windowWidth > 761){
+            Resize();
+
+          });
+
+          var Resize = function(){
+            var $windowWidth = $(window).width();
+             var wrapper = $("#wrapper");
+             if ($windowWidth < 1670 && $windowWidth > 761){
+              console.log("window with is " + $windowWidth);
               console.log("padding added");
               wrapper.css("padding-left", 250);
             }
 
-            else if ($windowWidth > 1670 || $windowWidth < 761){
+            else if($windowWidth > 1670 || $windowWidth < 761){
               console.log("padding removed");
               wrapper.css("padding-left", 0);
             }
-
-          });
+          }
 
 
 
@@ -131,6 +126,49 @@ $(document).ready(function(){
                      }, 600);
             });
 
-            }) 
+            });
+
+// makes sidebar list item stay active after pressing
+          $(function(){
+             $('.sidebar-nav li a').click(function() {
+                $('.sidebar-nav li a').removeClass("active");
+                $(this).toggleClass("active");
+            });
+
+          })
+       
+// the "bring me to top" buttom
+$(function(){
+  //Check to see if the window is top if not then display button
+  $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+      $('.arrow').fadeIn();
+    } else {
+      $('.arrow').fadeOut();
+    }
+  });
+  
+  //Click event to scroll to top
+  $('.arrow').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+})
+
+
           
    })    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
