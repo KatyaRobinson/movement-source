@@ -27,10 +27,7 @@
     position: fixed;
     left: 250px;
     width: 0;
-    height: 100%;
     margin-left: -250px;
-    overflow-y: auto;
-    background: rgba(125,123,122,0.85);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -59,8 +56,9 @@
     top: 0;
     width: 250px;
     margin: 0;
-    padding: 0;
+    padding: 21px 1px;
     list-style: none;
+    background: rgba(125,123,122,0.85);
 }
 
 .sidebar-nav li {
@@ -69,13 +67,14 @@
 }
 
 .sidebar-nav li a {
-    display: block;
-    text-decoration: none;
     color: white;
-    padding: 9px;
+    display: block;
+    font-size: 14px;
+    padding: 4px 18px;
+    text-decoration: none;
 }
 
-.sidebar-nav li a:hover, .active {
+.sidebar-nav li:hover, .active {
     text-decoration: none;
     color: #fff;
     background: rgba(255,255,255,0.2);
@@ -86,6 +85,10 @@
     text-decoration: none;
 }
 
+.sidebar-nav li a:before {
+    content: '• ';
+}
+
 .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
@@ -94,6 +97,11 @@
 
 .sidebar-nav > .sidebar-brand a {
     color: #999999;
+}
+
+.sidebar-nav > .brand-name {
+    color: white;
+    text-align: center;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {

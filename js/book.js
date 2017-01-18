@@ -4,7 +4,8 @@ $(document).ready(function(){
           // hide  nav logo which only appears when nav gets stuck to top on scrolling down
           $("#nav-logo").hide();
 
-
+          // slide sidebar
+           $(".sidebar-nav").delay(300).show("slide", { direction: "left" }, 200);
 
         //function to display appointment times
           var currentDate = '';
@@ -60,8 +61,7 @@ $(document).ready(function(){
           $(window).scroll(function () {
           //if you hard code, then use console
           //.log to determine when you want the 
-          //nav bar to stick.  
-          console.log($(window).scrollTop())
+          //nav bar to stick. 
         if ($(window).scrollTop() > 143) {
           $('.navbar-default').addClass('navbar-fixed-top');
           $("#nav-logo").show('slow');
@@ -87,13 +87,10 @@ $(document).ready(function(){
             var $windowWidth = $(window).width();
              var wrapper = $("#wrapper");
              if ($windowWidth < 1670 && $windowWidth > 761){
-              console.log("window with is " + $windowWidth);
-              console.log("padding added");
               wrapper.css("padding-left", 250);
             }
 
             else if($windowWidth > 1670 || $windowWidth < 761){
-              console.log("padding removed");
               wrapper.css("padding-left", 0);
             }
           }
