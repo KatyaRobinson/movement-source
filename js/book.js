@@ -125,16 +125,49 @@ $(document).ready(function(){
 
             });
 
-// makes sidebar list item stay active after pressing
-          $(function(){
-             $('.sidebar-nav li a').click(function() {
-                $('.sidebar-nav li a').removeClass("active");
-                $(this).toggleClass("active");
-            });
+// makes sidebar list item "active" on click and press
 
-          })
+ $(document).on("scroll", onScroll);
+
+ $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        $('a').each(function () {
+            $(this).removeClass('active');
+        })
+        $(this).addClass('active');
+         var target = this.hash,
+         menu = target;
+        $target = $(target);
+              
+       $('html, body').stop().animate({
+            'scrollTop': $target.offset().top+2
+        }, 600, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+
+function onScroll(event){
+    var scrollPos = $(document).scrollTop();
+    $('.sidebar-nav li a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+            $('#sidebar ul li a').removeClass("active");
+            currLink.addClass("active");
+        }
+        else{
+            currLink.removeClass("active");
+        }
+    });
+}
+
+
+
        
-// the "bring me to top" buttom
+// the "bring me to top" arrow
 $(function(){
   //Check to see if the window is top if not then display button
   $(window).scroll(function(){
@@ -150,11 +183,13 @@ $(function(){
     $('html, body').animate({scrollTop : 0},800);
     return false;
   });
-})
+});
+
+
 
 
           
-   })    
+   });   
 
 
 

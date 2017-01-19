@@ -82,6 +82,16 @@ a:hover{
     font-weight:bold;
 }
 
+
+/* description of nav button */
+
+.navbar-toggle>span.nav-btn-name {
+    bottom: 11px;
+    color: grey;
+    left: 44%;
+    position: absolute;
+}
+
 .img-full {
     min-width: 100%;
 }
@@ -549,6 +559,9 @@ li {
      background: rgba(125,123,122,0.85);
 }
 
+.toggleServicesMenu{
+    
+}
 
 
 

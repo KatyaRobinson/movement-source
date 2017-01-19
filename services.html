@@ -29,7 +29,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Book javascript link-->
-    <script src="js/book.js"></script>
+    <script type = "text/javascript" src="js/book.js"></script>
 
         
 
@@ -53,17 +53,18 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="nav-btn-name">Menu</span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
                 <a class="navbar-brand" href="index.html">Movement Source</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="main-menu-collapse">
                 <ul class="nav navbar-nav">
                     <span id="nav-logo">
                         <a href="index.html">
@@ -75,7 +76,7 @@
                     <li>
                         <a href="about.html">About</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="services.html">Services</a>
                     </li>
                     <li>
@@ -89,11 +90,23 @@
 
         <!--Main content-->
      <div class="container">
+     <div class="page-content-wrapper">
      <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
 
-            <ul class="sidebar-nav" style = "display: none">
+      <div class="navbar-header">
+                <button type="button" id = "service-menu-btn" class="navbar-toggle" data-toggle="collapse" data-target="#services-menu-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="nav-btn-name">Services</span>
+                </button>
+            </div>
+        <!-- Sidebar -->
+
+        <div id="sidebar-wrapper">
+            
+            <ul class="nav navbar-collapse sidebar-nav" style = "display:none" id="services-menu-collapse">
                  <h1 class="brand-name">Services</h1>
                  <hr>
                 <li>
@@ -112,6 +125,7 @@
                     <a href="#5">Pilates for Athletes</a>
                 </li>
             </ul>
+            
         </div>
         <!-- /#sidebar-wrapper -->
             
@@ -369,6 +383,9 @@
                     </div> <!--end #calendar-->
 
         </div> <!--end #wrapper-->
+        </div>
+        </div>
+
          <div id="arrow"> &uarr;</div>
         </div> <!-- /.container -->
     </div> <!--end .container-->
