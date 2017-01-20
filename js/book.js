@@ -117,10 +117,12 @@ $(document).ready(function(){
           $(function(){
 
                 // when the Secure My Appt button is clicked 
-                $("#groupClassRequest").click(function(){
+                $(".aptRequest").click(function(){
                 $("body, html").animate({ 
-                     scrollTop: $('#calendar').offset().top 
+                     scrollTop: $('#calendar').offset().top -100
                      }, 600);
+                
+                $("#selectservice").val(2).selectmenu('refresh');
             });
 
             });

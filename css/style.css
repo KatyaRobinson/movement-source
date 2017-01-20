@@ -153,16 +153,24 @@ a:hover{
 .span-block>span {
         display: block;
         clear: both;
-        font-size: 1.2em;
+        font-size: 1em;
         text-transform: uppercase;
+        color: #E8F4F4;
     }
+ .span-block>span>a {
+    color: #E8F4F4;
+    font-family: "Cookie";
+    font-size: 2em;
+    text-transform: none;
+ }   
+
     #copy{
         font-size: 0.7em;
     }
 
 
 footer {
-    background: #fff;
+    background: #435058;
    /* background: rgba(255,255,255,0.9); */
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 20px 0;
