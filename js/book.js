@@ -7,12 +7,18 @@ $(document).ready(function(){
           // slide sidebar
            $(".sidebar-nav").delay(300).show("slide", { direction: "left" }, 200);
 
+           $('.carousel').carousel({
+             interval: 5000 //changes the speed
+           });
+
         //function to display appointment times
           var currentDate = '';
           var dayName = '';
           $(function() {
               $(".dayOfWeek").hide();
               $('#datepicker').datepicker( {
+             
+
                onSelect: function(date) {
               $(".dayOfWeek").hide();
               $('#timeLabel').html("Select Time");
@@ -21,7 +27,7 @@ $(document).ready(function(){
                dayName = $.datepicker.formatDate('DD', curDate);
                $("#chosenDate").html("date is " + date + " day of week is " + dayName);
                   //adjust schedule according to the days of the week
-                   switch(dayName) {
+                  /* switch(dayName) {
                     case "Monday":
                       $('#monday').show();
                       break;
@@ -44,17 +50,16 @@ $(document).ready(function(){
 
                       default:
                       $('#weekend').show();
-                   }
+                   }*/
                },
                selectWeek: true,
                inline: true,
                startDate: '01/01/2000',
                firstDay: 1
               });
-              var div = $('<div>This is a group class</div>')
-              $('.group-class').append(div);
-
             });
+
+
 
 
     //function to stick navbar to top when scrolling
@@ -95,23 +100,19 @@ $(document).ready(function(){
             }
           }
 
+var hideDays = $(function(){
+      var day = date.getDay(), Sunday = 0, Monday = 1, Tuesday = 2, Wednesday = 3, Thursday = 4, Friday = 5, Saturday = 6;
+    
+        var closedDays = [[Monday], [Tuesday]];
+        for (var i = 0; i < closedDays.length; i++) {
+            if (day == closedDays[i][0]) {
+                return [false];
+            }}
+          });
 
 
-   //function for smooth scrolling on Services page       
-          $(function() {
-              $('a[href*="#"]:not([href="#"])').click(function() {
-                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                  var target = $(this.hash);
-                  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                  if (target.length) {
-                    $('html, body').animate({
-                      scrollTop: target.offset().top - 100
-                    }, 1000);
-                    return false;
-                  }
-                }
-              });
-});
+
+
 
   // Scrolls down to the calendar when button is pressed on Services page
           $(function(){
@@ -121,10 +122,38 @@ $(document).ready(function(){
                 $("body, html").animate({ 
                      scrollTop: $('#calendar').offset().top -100
                      }, 600);
-                
-                $("#selectservice").val(2).selectmenu('refresh');
+                 if($(this).attr('id') == "group-btn") {
+                  //picks correct option from the calendar services dropdown menu
+                  $("#selectservice").val(2).selectmenu('refresh');
+                  // disable dates when class isn't available
+                 $("#datepicker").datepicker({beforeShowDay: hideDays});
+
+
+                  }
+                  else if($(this).attr('id') == "private-btn") {
+                     $("#selectservice").val(3).selectmenu('refresh');
+                   }
+                  
             });
 
+            });
+
+
+
+
+   $(function() {
+              $('a[href*="#"]:not([href="#"])').click(function() {
+                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                  var target = $(this.hash);
+                 // target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                  if (target.length) {
+                    $('html, body').animate({
+                      scrollTop: target.offset().top - 100
+                    }, 1000);
+                    return false;
+                  }
+                }
+              });
             });
 
 // makes sidebar list item "active" on click and press
@@ -143,12 +172,12 @@ $(document).ready(function(){
          menu = target;
         $target = $(target);
               
-       $('html, body').stop().animate({
+       /*$('html, body').stop().animate({
             'scrollTop': $target.offset().top+2
-        }, 600, 'swing', function () {
+        }, 600, function () {
             window.location.hash = target;
             $(document).on("scroll", onScroll);
-        });
+        });*/
     });
 
 function onScroll(event){

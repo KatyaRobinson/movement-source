@@ -1,0 +1,40 @@
+<!doctype>
+<html>
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/redmond/jquery-ui.css" type="text/css" />
+
+
+<script>
+var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+var unavailableDates = ["2012/03/26","2012/03/27","2012/04/05"]; // yyyy/MM/dd
+var unavailableDays = ["Saturday","Sunday"];
+
+function unavailable(date) {
+    ymd = date.getFullYear() + "/" + ("0"+(date.getMonth()+1)).slice(-2) + "/" + ("0"+date.getDate()).slice(-2);
+    day = new Date(ymd).getDay();
+    if ($.inArray(ymd, unavailableDates) < 0 && $.inArray(days[day], unavailableDays) < 0) {
+        return [true, "enabled", "Book Now"];
+    } else {
+        return [false,"disabled","Booked Out"];
+    }
+}
+$('#iDate').datepicker({ beforeShowDay: unavailable });
+
+</script>
+
+<style>
+.disabled span{
+    color:black !important;
+    background:red !important;    
+}
+.enabled a{
+    color:black !important;
+    background:green !important;    
+}
+</style>
+
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/redmond/jquery-ui.css" type="text/css" />
+<input id="iDate" />
+
+
+</html>
