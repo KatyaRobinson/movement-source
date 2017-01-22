@@ -1,40 +1,45 @@
 <!doctype>
 <html>
+<title></title>
+<head>
 
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/redmond/jquery-ui.css" type="text/css" />
-
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-var unavailableDates = ["2012/03/26","2012/03/27","2012/04/05"]; // yyyy/MM/dd
-var unavailableDays = ["Saturday","Sunday"];
-
-function unavailable(date) {
-    ymd = date.getFullYear() + "/" + ("0"+(date.getMonth()+1)).slice(-2) + "/" + ("0"+date.getDate()).slice(-2);
-    day = new Date(ymd).getDay();
-    if ($.inArray(ymd, unavailableDates) < 0 && $.inArray(days[day], unavailableDays) < 0) {
-        return [true, "enabled", "Book Now"];
-    } else {
-        return [false,"disabled","Booked Out"];
+$(function() {
+    $( "#datepicker" ).datepicker({
+    minDate: 2,
+    maxDate: "+3M",
+    dateFormat: "DD, d MM, yy",
+    beforeShowDay: function(day) {
+        var newday = day.getDay();
+        if (newday == 1 || newday == 2 || newday == 3 || newday == 4) {
+            return [false, ""]
+        }
+        else {
+            var disabledDays = ["10-25-2013"];        
+        var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
+for (i = 0; i < disabledDays.length; i++) {
+    if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
+        return [false];
     }
 }
-$('#iDate').datepicker({ beforeShowDay: unavailable });
+return [true];
+    }
+        }
 
+    
+});
+  });
 </script>
 
-<style>
-.disabled span{
-    color:black !important;
-    background:red !important;    
-}
-.enabled a{
-    color:black !important;
-    background:green !important;    
-}
-</style>
+ </head>
 
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/redmond/jquery-ui.css" type="text/css" />
-<input id="iDate" />
+<body>
+
+<p>Date: <input type="text" id="datepicker" /></p>
+</body>
 
 
 </html>

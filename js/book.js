@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 
+
+
           // hide  nav logo which only appears when nav gets stuck to top on scrolling down
           $("#nav-logo").hide();
 
@@ -14,52 +16,104 @@ $(document).ready(function(){
         //function to display appointment times
           var currentDate = '';
           var dayName = '';
-          $(function() {
-              $(".dayOfWeek").hide();
-              $('#datepicker').datepicker( {
+          // $(function() {
+          //     $(".dayOfWeek").hide();
+
+          //     $('#datepicker').datepicker( {
              
 
-               onSelect: function(date) {
+          //      onSelect: function(date) {
+          //     $(".dayOfWeek").hide();
+          //     $('#timeLabel').html("Select Time");
+          //      currentDate = date;
+          //      var curDate = $(this).datepicker('getDate');
+          //      dayName = $.datepicker.formatDate('DD', curDate);
+          //      $("#chosenDate").html("date is " + date + " day of week is " + dayName);
+          //         //adjust schedule according to the days of the week
+          //          switch(dayName) {
+          //           case "Monday":
+          //             $('#monday').show();
+          //             break;
+
+          //             case "Tuesday":
+          //            $('#tuesday').show();
+          //             break;
+                      
+          //              case "Wednesday":
+          //            $('#wednesday').show();
+          //             break;
+
+          //              case "Thursday":
+          //            $('#thursday').show();
+          //             break;
+
+          //              case "Friday":
+          //            $('#friday').show();
+          //             break;
+
+          //             default:
+          //             $('#weekend').show();
+          //          }
+          //      },
+          //      selectWeek: true,
+          //      inline: true,
+          //      startDate: '01/01/2000',
+          //      firstDay: 1
+          //     });
+          //   });
+
+          $(function() {
+              $( "#datepicker" ).datepicker({
+               minDate: 2,
+               maxDate: "+3M",
+                dateFormat: "DD, d MM, yy",
+                onSelect: function(date) {
               $(".dayOfWeek").hide();
               $('#timeLabel').html("Select Time");
-               currentDate = date;
+               var currentDate = date;
                var curDate = $(this).datepicker('getDate');
                dayName = $.datepicker.formatDate('DD', curDate);
                $("#chosenDate").html("date is " + date + " day of week is " + dayName);
-                  //adjust schedule according to the days of the week
-                  /* switch(dayName) {
-                    case "Monday":
-                      $('#monday').show();
-                      break;
+               switch (dayName) {
+                case "Monday": getShedule("monday");
+                                break;
+                case "Tuesday": getSchedule("tuesday");
+                                break;
+                case "Wednesday" :getSchedule("wednesday");
+                                break;
+                case "Thursday" :getSchedule("thursday");
+                                break;
+                case "Friday" :getSchedule("friday");
+                                break;
+                case "Saturday" :getSchedule("saturday");
+                                break;
+                case "Sunday" : getSchedule("sunday");
+                                break;
 
-                      case "Tuesday":
-                     $('#tuesday').show();
-                      break;
-                      
-                       case "Wednesday":
-                     $('#wednesday').show();
-                      break;
+               }
 
-                       case "Thursday":
-                     $('#thursday').show();
-                      break;
+               
 
-                       case "Friday":
-                     $('#friday').show();
-                      break;
+                },
 
-                      default:
-                      $('#weekend').show();
-                   }*/
-               },
-               selectWeek: true,
-               inline: true,
-               startDate: '01/01/2000',
-               firstDay: 1
+               beforeShowDay: function(day) {
+                 var newday = day.getDay();
+                  if (newday == 0 || newday == 0) {
+                 return [false, ""]
+                  }
+                else {
+              var disabledDays = ["10-25-2013"];        
+              var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
+              for (i = 0; i < disabledDays.length; i++) {
+              if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
+               return [false];
+              }
+            }
+          return [true];
+            }
+              } 
               });
-            });
-
-
+                });
 
 
     //function to stick navbar to top when scrolling
@@ -100,15 +154,7 @@ $(document).ready(function(){
             }
           }
 
-var hideDays = $(function(){
-      var day = date.getDay(), Sunday = 0, Monday = 1, Tuesday = 2, Wednesday = 3, Thursday = 4, Friday = 5, Saturday = 6;
-    
-        var closedDays = [[Monday], [Tuesday]];
-        for (var i = 0; i < closedDays.length; i++) {
-            if (day == closedDays[i][0]) {
-                return [false];
-            }}
-          });
+
 
 
 
@@ -125,8 +171,6 @@ var hideDays = $(function(){
                  if($(this).attr('id') == "group-btn") {
                   //picks correct option from the calendar services dropdown menu
                   $("#selectservice").val(2).selectmenu('refresh');
-                  // disable dates when class isn't available
-                 $("#datepicker").datepicker({beforeShowDay: hideDays});
 
 
                   }
@@ -232,12 +276,80 @@ $(function(){
           
    });   
 
+ // I KNOW THIS NEEDS TO BE REFACTORED CAN'T FIGURE OUT HOW YET
+ //   
+ // 
 
 
 
 
+      // pull info from schedule.json asd displays available time depending on day of week
+     function getSchedule(dayWeek){
+      
+      var day = dayWeek;
+    $.getJSON('schedule.json', function(data) {
+    var output = "<ul>";
+
+        switch(day) {
+          case "monday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break;
+           case "tuesday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break;   
+           case "wednesday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break; 
+           case "thursday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break;   
+           case "friday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break;
+           case "saturday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break;
+             case "sunday": 
+                  $.each(data.schedule.monday, function(i, item) 
+                 { 
+                   output += '<li class=' + item.classType + '>' +
+                    item.timeSlot + ' ' + 
+                   '</li>';
+                 }); break;
+        }
 
 
+
+    output += "</ul>";
+    console.log(output);
+    document.getElementById("schedule").innerHTML = output;
+});
+
+      }
 
 
 

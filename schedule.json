@@ -1,0 +1,54 @@
+{"schedule":{
+			"monday": [
+					{"classType": "open",
+					"timeSlot": "10:00AM"		
+					},
+					{"classType": "personal",
+					"timeSlot": "10:30AM"		
+					}
+						],
+			"tuesday": [
+					{"classType": "open",
+					"timeSlot": "11:00AM"		
+					},
+					{"classType": "personal",
+					"timeSlot": "12:30AM"		
+					}
+
+						],
+			"wednesday": [
+					{"classType": "open",
+					"timeSlot": "10:00AM"		
+					},
+					{"classType": "personal",
+					"timeSlot": "10:30AM"		
+					}
+
+						],
+			"thursday": [
+
+					{"classType": "open",
+					"timeSlot": "10:00AM"		
+					},
+					{"classType": "personal",
+					"timeSlot": "10:30AM"		
+					}
+						],
+			"friday": [
+
+					{"classType": "open",
+					"timeSlot": "10:00AM"		
+					},
+					{"classType": "personal",
+					"timeSlot": "10:30AM"		
+					}
+						],
+			"saturday": [
+
+
+						],
+			"sunday": [
+
+
+						]			
+ }}

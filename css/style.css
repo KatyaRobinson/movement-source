@@ -570,7 +570,10 @@ li {
 .toggleServicesMenu{
     
 }
-
+#placeholder {
+    display: block;
+    background: white;
+}
 
 
 
