@@ -402,14 +402,15 @@ li {
     width: 100%;
 }
 
-#schedule>ul>li {
+#schedule>ul>a {
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px;
     width: 80px;
     list-style-type: none;
     text-align: center;
-    margin-top: 10px;
+    margin: 10px 7px;
+    display: inline-block;
 }
 
 .group-class{

@@ -334,25 +334,11 @@
                        <div class="form-group">
                         <label class="col-md-3 control-label" id = "timeLabel" for="selecttime"></label>
 
-                        <div id="schedule" class="col-md-6">
-
-                        </div>
-
+                        <div id="schedule" class="col-md-6"></div>
                   </div> 
-                     
-                       
-                        <!-- After service, date, and time slots were chosen, this button loads the Customer Info section of the form and the button gets repositioned to the very bottom of the form -->
+                        <div id="selected-options"></div>
+                        <div id="customer-info"> </div>
 
-                        <button id="submit-btn" class="btn btn-primary">Continue</button>
-                        <div id="customer-info"></div>
-
-                         <script type="text/javascript">
-                              $("#submit-btn").on('click', (function(e){
-                                e.preventDefault();
-                              $("#customer-info").load("customer-info.html");
-                               $(this).css("display", "none");
-                                }));
-                        </script>
 
                 </fieldset>
          </form>
@@ -369,7 +355,6 @@
     </div> <!--end .container-->
     <div class="arrow">&uarr;</div>
  
-  <div id="placeholder">   </div>
 </body>
 
 <footer>

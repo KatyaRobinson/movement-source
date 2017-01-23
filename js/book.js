@@ -1,5 +1,8 @@
 $(document).ready(function(){
+         DATE = '';
+         DAYNAME = '';
 
+          Datepicker();
 
           // set calensdar to display all dates
           $("#selectservice").val(1);
@@ -18,7 +21,7 @@ $(document).ready(function(){
           var currentDate = '';
           var dayName = '';
 
-          $(function() {
+          function Datepicker() {
               $( "#datepicker" ).datepicker({
                minDate: 2,
                maxDate: "+3M",
@@ -29,6 +32,8 @@ $(document).ready(function(){
                var currentDate = date;
                var curDate = $(this).datepicker('getDate');
                dayName = $.datepicker.formatDate('DD', curDate);
+               DATE = date;
+               DAYNAME = dayName;
                $("#chosenDate").html("date is " + date + " day of week is " + dayName);
                switch (dayName) {
                 case "Monday": getSchedule("monday");
@@ -72,7 +77,10 @@ $(document).ready(function(){
             }
               } 
               });
-                });
+                };
+
+
+
 
 
 // show mon, tue, and wed only
@@ -293,7 +301,7 @@ $(function(){
 
 
           
-   });   
+   
 
  // I KNOW THIS NEEDS TO BE REFACTORED CAN'T FIGURE OUT HOW YET
  //   
@@ -313,66 +321,74 @@ $(function(){
           case "monday": 
                   $.each(data.schedule.monday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</a>';
                  }); break;
            case "tuesday": 
                   $.each(data.schedule.tuesday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</a>';
                  }); break;   
            case "wednesday": 
                   $.each(data.schedule.wednesday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</a>';
                  }); break; 
            case "thursday": 
                   $.each(data.schedule.thursday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</a>';
                  }); break;   
            case "friday": 
                   $.each(data.schedule.friday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</a>';
                  }); break;
            case "saturday": 
                   $.each(data.schedule.saturday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</a>';
                  }); break;
              case "sunday": 
                   $.each(data.schedule.sunday, function(i, item) 
                  { 
-                   output += '<li class=' + item.classType + '>' +
+                   output += '<a class=' + item.classType + '>' +
                     item.timeSlot + ' ' + 
-                   '</li>';
+                   '</>';
                  }); break;
         }
 
 
 
     output += "</ul>";
-    console.log(output);
     document.getElementById("schedule").innerHTML = output;
 });
 
       }
 
+$(function(){
+  $("#schedule").on('click', 'a', (function(e){
+     e.preventDefault();
+    var time = $(this).text();
+       $("#customer-info").load("customer-info.html");
+       $("#selected-options").html("You have selected " + DATE + ', ' + time).append('<button id="changeDate" class="readMore">Change date</button>');
+     })
+  )
+     
+});
 
 
-
-
+});   
 
 
