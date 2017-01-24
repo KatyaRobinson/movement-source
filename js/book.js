@@ -3,6 +3,9 @@ $(document).ready(function(){
          DAYNAME = '';
 
           Datepicker();
+          $("#customer-info").hide();
+          resetForm();
+
 
           // set calensdar to display all dates
           $("#selectservice").val(1);
@@ -33,8 +36,10 @@ $(document).ready(function(){
                var curDate = $(this).datepicker('getDate');
                dayName = $.datepicker.formatDate('DD', curDate);
                DATE = date;
+               //updates the date if user chooses a different one
+               $("#selected-options").html("You have selected " + DATE);
                DAYNAME = dayName;
-               $("#chosenDate").html("date is " + date + " day of week is " + dayName);
+              // $("#chosenDate").html("date is " + date + " day of week is " + dayName);
                switch (dayName) {
                 case "Monday": getSchedule("monday");
                                 break;
@@ -377,12 +382,16 @@ $(function(){
 
       }
 
+function resetForm(){
+   $(this).closest('form').find("input[type=text], textarea").val('');
+}
+
 $(function(){
   $("#schedule").on('click', 'a', (function(e){
      e.preventDefault();
     var time = $(this).text();
-       $("#customer-info").load("customer-info.html");
-       $("#selected-options").html("You have selected " + DATE + ', ' + time).append('<button id="changeDate" class="readMore">Change date</button>');
+       $("#customer-info").css("display", "block");
+       $("#selected-options").html("You have selected " + DATE + ', ' + time);
      })
   )
      

@@ -576,8 +576,21 @@ li {
     background: white;
 }
 
+#cust-contact input, #cust-contact textarea {
+    width:100%;
+}
+#cust-contact {
+    margin-top: 10px;
+}
 
+#cust-message {
+    height: 92px;
+    margin-top: 11px;
+}
 
+textarea {
+    resize: vertical;
+}
 
 
 
