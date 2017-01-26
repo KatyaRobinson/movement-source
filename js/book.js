@@ -87,7 +87,6 @@ $(document).ready(function(){
 
 
 
-
 // show mon, tue, and wed only
   function showGroupClassDays(day){
                     var newday = day.getDay();
@@ -105,7 +104,26 @@ $(document).ready(function(){
           return [true];
             }
               } 
+// show tue only
+function showMatClassDays(day){
+                    var newday = day.getDay();
+                  if (newday == 0 || newday == 1|| newday == 3|| newday == 4 || newday == 5 || newday == 5 || newday == 6) {
+                 return [false, ""]
+                  }
+                else {
+              var disabledDays = ["10-25-2013"];        
+              var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
+              for (i = 0; i < disabledDays.length; i++) {
+              if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
+               return [false];
+              }
+            }
+          return [true];
+            }
+              } 
 
+
+//show all days
 function showAllDays(day){
                     var newday = day.getDay();
                   if (newday == 0) {
@@ -202,6 +220,7 @@ function updateCalendar(val){
    $("#schedule").html('');
    switch (val){
       case "2":  $('#datepicker').datepicker( "option", "beforeShowDay", showGroupClassDays); break;
+      case "4":  $('#datepicker').datepicker( "option", "beforeShowDay", showMatClassDays); break;
       default: $('#datepicker').datepicker( "option", "beforeShowDay", showAllDays);
   }
 }
@@ -389,9 +408,10 @@ function resetForm(){
 $(function(){
   $("#schedule").on('click', 'a', (function(e){
      e.preventDefault();
+     var classType = $("#selectservice option:selected").text();
     var time = $(this).text();
        $("#customer-info").css("display", "block");
-       $("#selected-options").html("You have selected " + DATE + ', ' + time);
+       $("#selected-options").html("You have selected <strong>" + DATE + ', ' + time + "</strong>");
      })
   )
      

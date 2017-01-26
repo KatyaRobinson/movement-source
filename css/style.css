@@ -14,9 +14,10 @@ Fonts used: ;
 
 Raleway - body, main text
 Cookie - header, logo
+Orbitron - figital watch font
 
  */
-@import url('https://fonts.googleapis.com/css?family=Cookie|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Cookie|Raleway|Orbitron');
 
 
 body {
@@ -403,14 +404,21 @@ li {
 }
 
 #schedule>ul>a {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 80px;
-    list-style-type: none;
-    text-align: center;
-    margin: 10px 7px;
+   border: 1px solid #26557e;
+    
     display: inline-block;
+    font-family: Orbitron;
+    height: 51px;
+    list-style-type: none;
+    margin: 10px 7px;
+    padding: 14px 5px 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+}
+
+#schedule>ul>a:hover {
+    background-color: rgba(149, 149, 149, 0.1);
 }
 
 .group-class{
@@ -577,7 +585,9 @@ li {
 }
 
 #cust-contact input, #cust-contact textarea {
-    width:100%;
+    font-size: 17px;
+    margin-bottom: 5px;
+    width: 100%;
 }
 #cust-contact {
     margin-top: 10px;
@@ -592,6 +602,43 @@ textarea {
     resize: vertical;
 }
 
+/* Group class timeSlots styles */
+.groupClass{
+      padding-top: 3px !important;
+      border: 2px solid #A5622A!important;
+}
+
+.groupClass::after {
+    content: "Group Class";
+    font-size: 10px;
+    color: #A5622A;
+    font-weight:bold;
+    font-family: Raleway;
+}
+
+/* Mat classes styles */
+
+.matClass{
+      padding-top: 3px !important;
+      border: 2px solid #228422!important;
+}
+
+.matClass::after {
+    content: "Mat Class";
+    font-size: 10px;
+    color: #228422;
+    font-weight:bold;
+    font-family: Raleway;
+}
+
+
+
+/* complementing colors 
+A52A2A - red (base - used in the theme)
+A5622A - orange brown
+228422 - green
+196363 - teal
+*/
 
 
 
