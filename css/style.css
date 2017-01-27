@@ -417,9 +417,17 @@ li {
     width: 80px;
 }
 
-#schedule>ul>a:hover {
+
+
+ #schedule>ul>a:hover {
     background-color: rgba(149, 149, 149, 0.1);
 }
+
+a.selected-time {
+     background-color: rgba(149, 149, 149, 0.2);
+}
+
+
 
 .group-class{
     background-color: red;
@@ -639,6 +647,7 @@ A5622A - orange brown
 228422 - green
 196363 - teal
 */
+
 
 
 

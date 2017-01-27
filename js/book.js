@@ -405,9 +405,12 @@ function resetForm(){
    $(this).closest('form').find("input[type=text], textarea").val('');
 }
 
+// when timeSlot is picked
 $(function(){
   $("#schedule").on('click', 'a', (function(e){
      e.preventDefault();
+     $("#schedule ul a").removeClass("selected-time");
+     $(this).addClass("selected-time");
      var classType = $("#selectservice option:selected").text();
     var time = $(this).text();
        $("#customer-info").css("display", "block");

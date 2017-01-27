@@ -340,8 +340,8 @@
                   </div> 
                         <div id="selected-options" class="text-center"></div>
                         <div id="customer-info">
-                            <?php require (../connection.php)?>
-                            <form class="form-group" id="cust-contact">
+                            
+                            <form action = "appt-request.php" class="form-group" id="cust-contact">
                                 
                                 <!--Name-->
                                <!--  <label class="col-lg-1 control-label" for="cust-name"> Name </label> -->
