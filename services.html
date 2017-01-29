@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html lang="en">
 
 <head>
@@ -30,9 +32,6 @@
 
     <!-- Book javascript link-->
     <script type = "text/javascript" src="js/book.js"></script>
-
-        
-
     </head>
 
     <body>
@@ -340,30 +339,30 @@
                   </div> 
                         <div id="selected-options" class="text-center"></div>
                         <div id="customer-info">
-                            <?php require (../connection.php)?>
+                            
                             <form class="form-group" id="cust-contact">
                                 
                                 <!--Name-->
                                <!--  <label class="col-lg-1 control-label" for="cust-name"> Name </label> -->
                                 <div class="col-md-4">
-                                    <input type="text" id="cust-name" name="cust-name" placeholder="Name">
+                                    <input type="text" id="cust-name" name="name" placeholder="Name">
                                 </div> 
                                 <!--Phone number-->
                                 
                                <!--  <label class="col-md-4 control-label" for="cust-phone"> Phone number </label> -->
                                 <div class="col-md-4">
-                                    <input type="text" id="cust-phone" name="cust-phone" placeholder="Phone number">
+                                    <input type="text" id="cust-phone" name="phone" placeholder="Phone number">
                                 </div> 
                                 <!--Email Address-->
                                 
                                <!--  <label class="col-md-4 control-label" for="cust-email"> Email </label> -->
                                 <div class="col-md-4">
-                                     <input type="text" id="cust-email" name="cust-email" placeholder="Email">
+                                     <input type="text" id="cust-email" name="email" placeholder="Email">
                                 </div> 
                                 <div class="col-sm-12">
-                                    <textarea id="cust-message" name ="cust-message" placeholder="Message (optional)"></textarea>
+                                    <textarea id="cust-message" name ="message" placeholder="Message (optional)"></textarea>
                                 </div>
-                                <button class="btn apptBtn">Request appointment </button>
+                                <input type="submit" value="Request appointment" id="request-appt" />
                             </form>
             
                      </div>

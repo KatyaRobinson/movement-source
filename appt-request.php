@@ -19,10 +19,11 @@ $name = $_POST['name'];
 $phone = $_POST['phone'];
 $email = $_POST['email'];
 $message = $_POST['message'];
+$date = $_POST['date'];
+$time = $_POST['time'];
 
-echo $name ;
-$sql = "INSERT INTO apprequests (name, phone, email, message)
-		VALUES $name, $phone, $email, $message ";
+$sql = "INSERT INTO apptrequests (name, phone, email, message, apptdate, appttime)
+		VALUES ('$name', '$phone', '$email', '$message', '$date', '$time')";
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
 } else {

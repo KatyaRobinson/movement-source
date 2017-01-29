@@ -1,6 +1,7 @@
 $(document).ready(function(){
          DATE = '';
          DAYNAME = '';
+         TIME = '';
 
           Datepicker();
           $("#customer-info").hide();
@@ -28,13 +29,17 @@ $(document).ready(function(){
               $( "#datepicker" ).datepicker({
                minDate: 2,
                maxDate: "+3M",
-                dateFormat: "DD, d MM, yy",
+                /*dateFormat: "DD, d MM, yy",*/
+                dateFormat: "yy-mm-dd",
                 onSelect: function(date) {
               $(".dayOfWeek").hide();
               $('#timeLabel').html("Select Time");
                var currentDate = date;
                var curDate = $(this).datepicker('getDate');
                dayName = $.datepicker.formatDate('DD', curDate);
+               DAY = $.datepicker.formatDate('d', curDate);
+               MONTH = $.datepicker.formatDate('MM', curDate);
+               YEAR = $.datepicker.formatDate('yy', curDate);
                DATE = date;
                //updates the date if user chooses a different one
                $("#selected-options").html("You have selected " + DATE);
@@ -141,7 +146,31 @@ function showAllDays(day){
             }
               }           
 
+$("#request-appt").click(function(e){
+  e.preventDefault();
+  var name = $("#cust-name").val();
+  var phone = $("#cust-phone").val();
+  var email = $("#cust-email").val();
+  var message = $("#cust-message").val();
 
+  var date = DATE;
+  var time = TIME;
+  console.log(time);
+  var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message + '&date=' + date + '&time=' + time;
+  alert(dataString);
+  $.ajax({
+    url: 'appt-request.php',
+    type: 'POST',
+    data: dataString,
+    success: function() {
+      alert('info sent');
+    }
+  });
+});
+
+
+       
+    
 
     //function to stick navbar to top when scrolling
           $(window).scroll(function () {
@@ -412,9 +441,9 @@ $(function(){
      $("#schedule ul a").removeClass("selected-time");
      $(this).addClass("selected-time");
      var classType = $("#selectservice option:selected").text();
-    var time = $(this).text();
+    TIME = $(this).text();
        $("#customer-info").css("display", "block");
-       $("#selected-options").html("You have selected <strong>" + DATE + ', ' + time + "</strong>");
+       $("#selected-options").html("You have selected <strong>" + DAYNAME + ', ' + DAY + ' ' + MONTH + ' ' + YEAR + ', ' + TIME + "</strong>");
      })
   )
      
