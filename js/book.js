@@ -146,6 +146,7 @@ function showAllDays(day){
             }
               }           
 
+// submits appointment time and customer info to database
 $("#request-appt").click(function(e){
   e.preventDefault();
   var name = $("#cust-name").val();
@@ -155,17 +156,21 @@ $("#request-appt").click(function(e){
 
   var date = DATE;
   var time = TIME;
+
   console.log(time);
   var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message + '&date=' + date + '&time=' + time;
-  alert(dataString);
   $.ajax({
     url: 'appt-request.php',
     type: 'POST',
     data: dataString,
     success: function() {
-      alert('info sent');
+     
     }
   });
+  $("#customer-info").find('input').val('');
+  $("#customer-info").find('textarea').val('');
+  $("#customer-info").css('display', 'none');
+  $("#selected-options").append("<br />Your request has been sent");
 });
 
 
@@ -445,6 +450,7 @@ $(function(){
        $("#customer-info").css("display", "block");
        $("#selected-options").html("You have selected <strong>" + DAYNAME + ', ' + DAY + ' ' + MONTH + ' ' + YEAR + ', ' + TIME + "</strong>");
      })
+
   )
      
 });

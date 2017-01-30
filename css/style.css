@@ -592,12 +592,12 @@ a.selected-time {
     background: white;
 }
 
-#cust-contact input, #cust-contact textarea {
+#customer-info input, #customer-info textarea {
     font-size: 17px;
     margin-bottom: 5px;
     width: 100%;
 }
-#cust-contact {
+#customer-info {
     margin-top: 10px;
 }
 
