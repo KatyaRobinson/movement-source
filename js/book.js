@@ -4,7 +4,7 @@ $(document).ready(function(){
          TIME = '';
 
           Datepicker();
-          $("#customer-info").hide();
+          $("#customer-info").css("opacity", "0");
           resetForm();
 
 
@@ -42,7 +42,8 @@ $(document).ready(function(){
                YEAR = $.datepicker.formatDate('yy', curDate);
                DATE = date;
                //updates the date if user chooses a different one
-               $("#selected-options").html("You have selected " + DATE);
+              $("#selected-options").html("");
+               //$("#selected-options").html("You have selected " + DATE);
                DAYNAME = dayName;
               // $("#chosenDate").html("date is " + date + " day of week is " + dayName);
                switch (dayName) {
@@ -65,7 +66,7 @@ $(document).ready(function(){
 
                $("body, html").animate({ 
                      scrollTop: $('#schedule').offset().top - 200
-                     }, 1000);
+                     }, 300);
                
 
                 },
@@ -167,6 +168,7 @@ $("#request-appt").click(function(e){
      
     }
   });
+  //clear inputs after submitting
   $("#customer-info").find('input').val('');
   $("#customer-info").find('textarea').val('');
   $("#customer-info").css('display', 'none');
@@ -227,8 +229,8 @@ $("#request-appt").click(function(e){
                 // when the Secure My Appt button is clicked 
                 $(".aptRequest").click(function(){
                 $("body, html").animate({ 
-                     scrollTop: $('#calendar').offset().top -100
-                     }, 600);
+                     scrollTop: $('#calendar').offset().top-100
+                     }, 300);
                  if($(this).attr('id') == "group-btn") {
                   //picks correct option from the calendar services dropdown menu
                   $("#selectservice").val(2);
@@ -274,11 +276,11 @@ function updateCalendar(val){
               $('a[href*="#"]:not([href="#"])').click(function() {
                 if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                   var target = $(this.hash);
-                 // target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                  // target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                   if (target.length) {
                     $('html, body').animate({
                       scrollTop: target.offset().top - 100
-                    }, 1000);
+                    }, 300);
                     return false;
                   }
                 }
@@ -345,16 +347,6 @@ $(function(){
   });
 });
 
-// Facebook SDK for JavaScript with jQuery
- $.ajaxSetup({ cache: true });
-  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
-    FB.init({
-      appId: '{your-app-id}',
-      version: 'v2.7' // or v2.1, v2.2, v2.3, ...
-    });     
-    $('#loginbutton,#feedbutton').removeAttr('disabled');
-    FB.getLoginStatus(updateStatusCallback);
-  });
 
 
 
@@ -435,6 +427,10 @@ $(function(){
 
       }
 
+      function displaySelectedDay(){
+        $("#selected-options").html("You have selected <strong>" + DAYNAME + ', ' + DAY + ' ' + MONTH + ' ' + YEAR + ', ' + TIME + "</strong>");
+      }
+
 function resetForm(){
    $(this).closest('form').find("input[type=text], textarea").val('');
 }
@@ -447,8 +443,11 @@ $(function(){
      $(this).addClass("selected-time");
      var classType = $("#selectservice option:selected").text();
     TIME = $(this).text();
-       $("#customer-info").css("display", "block");
-       $("#selected-options").html("You have selected <strong>" + DAYNAME + ', ' + DAY + ' ' + MONTH + ' ' + YEAR + ', ' + TIME + "</strong>");
+       $("#customer-info").css("opacity", "1");
+        $("body, html").animate({ 
+                     scrollTop: $('#schedule').offset().top - 200
+                     }, 300);
+       displaySelectedDay();
      })
 
   )

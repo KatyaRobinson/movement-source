@@ -605,6 +605,7 @@ a.selected-time {
 }
 #customer-info {
     margin-top: 10px;
+    transition: opacity 1s ease-out;
 }
 
 #cust-message {
