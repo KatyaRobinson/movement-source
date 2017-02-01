@@ -32,6 +32,9 @@
 
     <!-- Book javascript link-->
     <script type = "text/javascript" src="js/book.js"></script>
+
+    <!-- form validator script-->
+    <script type = "text/javascript" src="js/gen_validatorv4.js"></script> 
     </head>
 
     <body>
@@ -305,8 +308,8 @@
                 <div class="row">
                     <div class="box">
              <!--Book Appointment form-->
-              <form class="form-horizontal">
-                <fieldset>
+              <div class="form-horizontal">
+               
 
                 <!-- Form Name -->
                 <legend>Request Appointment</legend>
@@ -338,38 +341,45 @@
                         <div id="schedule" class="col-md-6"></div>
                   </div> 
                         <div id="selected-options" class="text-center"></div>
-                        <div id="customer-info">
+                       <div id="customer-info"> 
                             
-                            <form class="form-group" id="cust-contact">
+                            <form class="form-group" id="cust-contact" action="">
                                 
                                 <!--Name-->
                                <!--  <label class="col-lg-1 control-label" for="cust-name"> Name </label> -->
                                 <div class="col-md-4">
-                                    <input type="text" id="cust-name" name="name" placeholder="Name">
+                                    <input type="text" id="cust-name" name="name" placeholder="Name" required>
                                 </div> 
                                 <!--Phone number-->
                                 
                                <!--  <label class="col-md-4 control-label" for="cust-phone"> Phone number </label> -->
                                 <div class="col-md-4">
-                                    <input type="text" id="cust-phone" name="phone" placeholder="Phone number">
+                                    <input type="text" id="cust-phone" name="phone" placeholder="Phone number" required>
                                 </div> 
                                 <!--Email Address-->
                                 
                                <!--  <label class="col-md-4 control-label" for="cust-email"> Email </label> -->
                                 <div class="col-md-4">
-                                     <input type="text" id="cust-email" name="email" placeholder="Email">
+                                     <input type="text" id="cust-email" name="email" placeholder="Email" required>
                                 </div> 
                                 <div class="col-sm-12">
                                     <textarea id="cust-message" name ="message" placeholder="Message (optional)"></textarea>
                                 </div>
-                                <button type="submit" value="Request appointment" id="request-appt" class="btn readMore">Request Appointment</button>
-                            </form>
+                                <button type="submit" name="submit" value="Request appointment" id="request-appt" class="btn readMore">Request Appointment</button>
+                            </form> <!-- end cust-contact-->
+
+                         <script type="text/javascript">
+                         var frmvalidator = new Validator("cust-contact");
+                         frmvalidator.addValidation("name","req","Please enter your First Name");
+                         frmvalidator.addValidator("phone", "reg");
+                         frmValidator.addValidation("phone", "maxlen=50");
+                         frmValidator.addValidation("phone", "numeric");
+                         </script>   
             
-                     </div>
+                  </div> 
 
-
-                </fieldset>
-         </form>
+                
+         </div>
             </div> <!--end .box-->
                 </div> <!--end .row-->
                     </div> <!--end #calendar-->

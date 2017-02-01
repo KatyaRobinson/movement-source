@@ -171,8 +171,10 @@ $("#request-appt").click(function(e){
   //clear inputs after submitting
   $("#customer-info").find('input').val('');
   $("#customer-info").find('textarea').val('');
-  $("#customer-info").css('display', 'none');
+  $("#customer-info").css('opacity', '0');
   $("#selected-options").append("<br />Your request has been sent");
+  updateCalendar();
+
 });
 
 
