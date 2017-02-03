@@ -34,8 +34,8 @@
     <script type = "text/javascript" src="js/book.js"></script>
 
     <!-- form validator script-->
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-    <script type = "text/javascript" src="js/form-validator.js"></script> 
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+     <script type = "text/javascript" src="js/form-validator.js"></script> 
     </head>
 
     <body>
@@ -348,12 +348,12 @@
                             <form method= "POST" class="form-group" id="cust-contact">
                                 
                                 <!--Name-->
-                               <!--  <label class="col-lg-1 control-label" for="cust-name"> Name </label> -->
+                               <!--  <<label for=></label> class="col-lg-1 control-label" for="cust-name"> Name </label> -->
                                 <!-- <div class="col-md-4">
                                     <input type="text" id="cust-name" name="name" placeholder="Name" required>
                                 </div>  -->
-
-                                <div class="control-group">
+                                
+                                <div class="control-group col-md-4" >
                                     <label class="control-label" for="name">Name</label>
                                      <div class="controls">
                                          <input type="text" name="name" id="name" placeholder="Your name">
@@ -368,7 +368,7 @@
                                     <input type="text" id="cust-phone" name="phone" placeholder="Phone number" required>
                                 </div>  -->
 
-                                 <div class="control-group">
+                                 <div class="control-group col-md-4">
         <label class="control-label" for="phone">Phone</label>
         <div class="controls">
             <input type="text" name="phone" id="phone" placeholder="Your email address">
@@ -381,7 +381,7 @@
                                      <input type="email" id="cust-email" name="email" placeholder="Email" required>
                                 </div> 
  -->
-            <div class="control-group">
+            <div class="control-group col-md-4">
         <label class="control-label" for="email">Email Address</label>
         <div class="controls">
             <input type="text" name="email" id="email" placeholder="Your email address">
@@ -391,7 +391,7 @@
                              <!--    <div class="col-sm-12">
                                     <textarea id="cust-message" name ="message" placeholder="Message (optional)"></textarea>
                                 </div> -->
-<div class="control-group">
+<div class="control-group col-md-12">
         <label class="control-label" for="message">Message</label>
         <div class="controls">
             <textarea name="message" id="cust-message" rows="8" class="span5" placeholder="The message you want to send to us."></textarea>
@@ -402,10 +402,7 @@
                                 <button type="submit" name="submit" value="Request appointment" id="request-appt" class="btn readMore">Request Appointment</button>
                             </form> <!-- end cust-contact-->
 
-                         <script type="text/javascript">
-                        // ("#cust-contact").validator();
-                         </script>   
-            
+                        
                   </div> 
 
                 

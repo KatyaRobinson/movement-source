@@ -584,6 +584,7 @@ a.selected-time {
     right: 30px;
     text-align: center;
     width: 50px;
+    background-color: rgba(125,123,122,0.1);
 }
 
 .arrow:hover {
