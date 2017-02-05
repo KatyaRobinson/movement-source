@@ -1,6 +1,6 @@
 <?php
    include("config.php");
-   session_start();
+  session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
@@ -8,23 +8,24 @@
       $myusername = mysqli_real_escape_string($conn,$_POST['username']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password']); 
       
-      $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
-      if (!$sql) {
-    printf("Error: %s\n", mysqli_error($conn));
-    exit();
-}
+      $sql = "SELECT id FROM admin WHERE username = '$myusername' and password = '$mypassword'";
+
+
       $result = mysqli_query($conn,$sql);
-      echo $result;
+      if($result === false){
+         echo "yup it's false";
+      }
+
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+      //$active = $row['active'];
       
       $count = mysqli_num_rows($result);
-      echo $count;
       
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if($count == 1) {
-         session_register("myusername");
+         // session_register("myusername");
+         //$_SESSION['myusername'] = $myusername;
          $_SESSION['login_user'] = $myusername;
          
          header("location: welcome.php");
