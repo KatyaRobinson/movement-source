@@ -47,7 +47,7 @@ $(function() {
      $("#selected-options").append("Name: " + name + "<br/>");
      $("#selected-options").append("Phone: " + phone + "<br/>");
      $("#selected-options").append("Email: " + email + "<br/>");
-     if(!$(message).val()===''){
+     if(!$(message)){
      $("#selected-options").append("Message: " + message + "<br/>");
    }
      $("#selected-options").append("<strong>We will be in touch soon!</strong>");

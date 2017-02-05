@@ -147,38 +147,6 @@ function showAllDays(day){
             }
               }           
 
-// submits appointment time and customer info to database
-/*$("#cust-contact").on('submit', function(e){
-  e.preventDefault();
-  var name = $("#cust-name").val();
-  var phone = $("#cust-phone").val();
-  var email = $("#cust-email").val();
-  var message = $("#cust-message").val();
-
-  var date = DATE;
-  var time = TIME;
-
-  var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message + '&date=' + date + '&time=' + time;
-  $.ajax({
-    url: 'appt-request.php',
-    type: 'POST',
-    data: dataString,
-    success: function() {
-     
-    }
-  });
-  //clear inputs after submitting
-  $("#customer-info").find('input').val('');
-  $("#customer-info").find('textarea').val('');
-  $("#customer-info").css('opacity', '0');
-  $("#selected-options").append("<br />Your request has been sent");
-  updateCalendar();
-
-});*/
-
-
-       
-    
 
     //function to stick navbar to top when scrolling
           $(window).scroll(function () {
@@ -187,7 +155,10 @@ function showAllDays(day){
           //nav bar to stick. 
         if ($(window).scrollTop() > 143) {
           $('.navbar-default').addClass('navbar-fixed-top');
-          $("#nav-logo").show('slow');
+
+            if($(window).width() > 800){
+               $("#nav-logo").show('slow'); 
+             }
         }
         if ($(window).scrollTop() < 144) {
           $('.navbar-default').removeClass('navbar-fixed-top');
@@ -217,10 +188,6 @@ function showAllDays(day){
               wrapper.css("padding-left", 0);
             }
           }
-
-
-
-
 
 
 
@@ -347,16 +314,6 @@ $(function(){
     return false;
   });
 });
-
-
-
-
-          
-   
-
- // I KNOW THIS NEEDS TO BE REFACTORED CAN'T FIGURE OUT HOW YET
- //   
- // 
 
 
 
