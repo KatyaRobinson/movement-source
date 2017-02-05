@@ -27,7 +27,40 @@ $(function() {
     // Make sure the form is submitted to the destination defined
     // in the "action" attribute of the form when valid
     submitHandler: function(form) {
-      form.submit();
+
+  var name = $("#name").val();
+  var phone = $("#phone").val();
+  var email = $("#email").val();
+  var message = $("#cust-message").val();
+
+  var date = DATE;
+  var time = TIME;
+
+  var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message + '&date=' + date + '&time=' + time;
+  $.ajax({
+    url: 'appt-request.php',
+    type: 'POST',
+    data: dataString,
+    success: function() {
+     $("#customer-info").css('opacity', '0');
+     $("#selected-options").append("<br />Your request has been sent <br />");
+     $("#selected-options").append("Name: " + name + "<br/>");
+     $("#selected-options").append("Phone: " + phone + "<br/>");
+     $("#selected-options").append("Email: " + email + "<br/>");
+     if(!$(message).val()===''){
+     $("#selected-options").append("Message: " + message + "<br/>");
+   }
+     $("#selected-options").append("<strong>We will be in touch soon!</strong>");
+    },
+    error: function(responseData){
+      console.log('Ajax request not received!');
+    }
+  });
+  //clear inputs after submitting
+  $("#customer-info").find('input').val('');
+  $("#customer-info").find('textarea').val('');
+  return false; // prevent redirecting
+  updateCalendar();
     }
   });
 });
