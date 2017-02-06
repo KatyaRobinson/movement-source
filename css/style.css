@@ -657,5 +657,18 @@ A5622A - orange brown
 */
 
 
+/* Admin page styles */
+
+.appts-table td{
+    font-size: 14px;
+    padding: 4px 7px 2px;
+    vertical-align: bottom;
+    border-right: 1px solid #DFDFDF;
+    
+}
+
+.appts-table tr:nth-child(even) {
+    background-color: #E7E7E7;
+}
 
 
