@@ -114,11 +114,14 @@
 		echo "<table class='appts-table'>"; // start a table tag in the HTML
 
 		while($row = $result->fetch_assoc()) {   //Creates a loop to loop through results
-		echo "<tr><td>" . $row['name'] . "</td><td>" . $row['phone'] . "</td><td>" . $row['email'] . "</td><td>" . $row['message'] . "</td><td>" . $row['apptdate'] . "</td><td>" . $row['appttime'] . "</td></tr>";  //$row['index'] the index here is a field name
-		}
 
-		echo "</table>"; //Close the table in HTML
+        echo "<a href='#'> Name: " . $row['name'] . ' Phone number: ' . $row['phone'] . "</a><br />";
 
+		/*echo "<tr><td>" . $row['name'] . "</td><td>" . $row['phone'] . "</td><td>" . $row['email'] . "</td><td>" . $row['message'] . "</td><td>" . $row['apptdate'] . "</td><td>" . $row['appttime'] . "</td></tr>";  //$row['index'] the index here is a field name
+		
+
+		echo "</table>"; //Close the table in HTML*/
+        }
 
 
 		$conn->close();

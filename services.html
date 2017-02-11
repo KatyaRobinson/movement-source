@@ -35,7 +35,9 @@
 
     <!-- form validator script-->
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
-     <script type = "text/javascript" src="js/form-validator.js"></script> 
+     <script type = "text/javascript" src="js/form-validator.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+ 
     </head>
 
     <body>
@@ -96,7 +98,7 @@
      <div class="page-content-wrapper">
      <div id="wrapper">
 
-      <div class="navbar-header">
+     <!--  <div class="navbar-header">
                 <button type="button" id = "service-menu-btn" class="navbar-toggle" data-toggle="collapse" data-target="#services-menu-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -104,12 +106,12 @@
                     <span class="icon-bar"></span>
                     <span class="nav-btn-name">Services</span>
                 </button>
-            </div>
+            </div> -->
         <!-- Sidebar -->
 
         <div id="sidebar-wrapper">
             
-            <ul class="nav navbar-collapse sidebar-nav" style = "display:none" id="services-menu-collapse">
+            <ul class="collapse navbar-collapse sidebar-nav" style = "display:none" id="services-menu-collapse">
                  <h1 class="brand-name">Services</h1>
                  <hr>
                 <li>
@@ -146,17 +148,17 @@
                              <hr>
                     </div> <!--end .col-lg-12-->
 
-                    <div class="promo col-lg-12"><a href="contact.html">Contact Us </a> now for information about our FREE intro session. *Applies to new clients only
+                    <div class="promo col-lg-12"><a href="contact.html#contact-form">Contact Us </a> now for information about our FREE intro session. <br /> *Applies to new clients only
                     </div>
 
                     <!--Pilates Group Class-->
 
                     <div class="col-lg-12" id="1">
                          <img class="img-responsive img-border img-full" src="img/slide-3.jpg" alt="">
-                         <h2>Pilates Circuit Group Class
+                         <h3>Pilates Circuit Group Class
                           <br>
                         <small>Available Mon, Tue, Wed</small>
-                         </h2>
+                         </h3>
                     <p class="service-description">Blending classical Pilates principles with enhanced repetitions, this class is sure to be the most effective way to welcome Pilates into your routine!  The Pilates Circuit Class is open to a maximum of 4 people to ensure correct form and to provide individualized attention, making it suitable for all levels.  Class begins with a core warm-up to introduce you to Pilates concepts and prepare you for the full body circuit training using various Pilates equipment and small props.  Each class ends with a final stretch session to leave you feeling equally long and strong. </p>
                         <div class="class-times">
                              <li><strong>Monday</strong> 6:30pm</li>
@@ -178,11 +180,11 @@
                 
                 <div class="col-lg-12" id="2">
                     <img class="img-responsive img-border img-full" src="img/slide-3.jpg" alt="">
-                    <h2>Private and Semi-Private Lessons
+                    <h3>Private and Semi-Private Lessons
                         <br>
                         <small></small>
-                    </h2>
-                    <p class="service-description">Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending...</p>
+                    </h3>
+                    <p class="service-description">Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... Description pending... </p>
                      <div class="class-times">
                              <li>Appointments only</li>
                              
@@ -202,10 +204,10 @@
 
                 <div class="col-lg-12" id="3">
                     <img class="img-responsive img-border img-full" src="img/slide-1.jpg" alt="">
-                    <h2>Pilates in the Workplace
+                    <h3>Pilates in the Workplace
                         <br>
                         <small>Pilates in the Workplace</small>
-                    </h2>
+                    </h3>
                     <p class="service-description">Offering Pilates Sessions around the work day (pre, mid, post) can help significantly boost overall work ethic in the community while assisting with posture and preventing injury.  Our two packages focus on the specific needs of your company and how to support your employees long term.  </p>
 
                     <p class = "service-description">
@@ -231,7 +233,7 @@
                          </div>
                          <p class="price">$10 / participant</p>
                          <p class ="class-duration">50 mins</p>
-                    <a href="#"><button class="btn readMore">Secure My Spot</button></a>
+                    <button class="btn readMore aptRequest">Make Appointment</button>
                     <hr>
                 </div>
 
@@ -240,10 +242,10 @@
                 
                 <div class="col-lg-12" id="4">
                     <img class="img-responsive img-border img-full" src="img/slide-2.jpg" alt="">
-                    <h2>Pilates For Seniors
+                    <h3>Pilates For Seniors
                         <br>
                         <small></small>
-                    </h2>
+                    </h3>
                     <p class="service-description">Consider offering a group Pilates Class at your Communty or Retirement Center.  All that is needed are folding chairs for each participant and a certified Pilates Instructor!
 
                     Kelly Adorno will address the importance of body awareness in preventing falls and living pain free through everyday activities while addressing particular injuries, aches and pains of the individuals.  The focus of our class will be balance, posture, and strength.
@@ -255,7 +257,7 @@
                          </div>
                          <p class="price">Pricing will vary depending on number of participants and location</p>
                          <p class ="class-duration"></p>
-                     <a href="#"><button class="btn readMore">Contact us for info</button></a>
+                     <button class="btn readMore aptRequest">Contact us for info</button>
                     <hr>
                 </div>
 
@@ -263,10 +265,10 @@
 
                 <div class="col-lg-12" id="5">
                     <img class="img-responsive img-border img-full" src="img/slide-2.jpg" alt="">
-                    <h2>Pilates for Athletes
+                    <h3>Pilates for Athletes
                         <br>
                         <small></small>
-                    </h2>
+                    </h3>
                     <p class = "service-description">With Pilates training, athletes can enhance their performance in their sport while minimizing strain and injury.  The Pilates for Athletes program will focus on the muscle groups needed for each individual and also provide knowledge about safe stretching and functioning mechanics of the body.  Each session will be fifty minutes consisting of an introduction to Pilates, a workout, stretch session and an overview of additional exercises that can be performed at home or at the gym.
 
                     *Pricing will vary depending on number of participants and location* 
@@ -278,7 +280,7 @@
                          </div>
                          <p class="price">Pricing will vary depending on number of participants and location</p>
                          <p class ="class-duration"></p>
-                     <a href="#"><button class="btn readMore">Contact us for info</button></a>
+                     <button class="btn readMore aptRequest">Contact us for info</button>
                     <hr>
                 </div>
 
@@ -286,10 +288,10 @@
 
                 <div class="col-lg-12" id="6">
                     <img class="img-responsive img-border img-full" src="img/slide-3.jpg" alt="">
-                    <h2>Pilates for Runners
+                    <h3>Pilates for Runners
                         <br>
                         <small></small>
-                    </h2>
+                    </h3>
                     <p class = "service-description">This specialized Pilates Circuit Class targets specific muscle groups catered to the runner’s needs.  Pilates helps strengthen the core, improves balance and stability to help minimize overuse, strain and injury during running making this class the ideal addition for both casual or competitive runners.  The Pilates For Runners Circuit Class is open to a maximum of 4 people to ensure correct form and to provide individualized attention. </p>
                      <div class="class-times">
                              <li>Saturdays 11:00AM</li>
@@ -297,7 +299,7 @@
                          </div>
                          <p class="price">$15</p>
                          <p class ="class-duration">55 minutes</p>
-                     <a href="#"><button class="btn readMore">Pre-register for this class</button></a>
+                     <button class="btn readMore aptRequest">Pre-register for this class</button>
                     <hr>
                 </div>
                     

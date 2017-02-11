@@ -199,6 +199,7 @@ function showAllDays(day){
                 $("body, html").animate({ 
                      scrollTop: $('#calendar').offset().top-100
                      }, 300);
+                // show group class schedule
                  if($(this).attr('id') == "group-btn") {
                   //picks correct option from the calendar services dropdown menu
                   $("#selectservice").val(2);
@@ -206,11 +207,16 @@ function showAllDays(day){
                     updateCalendar(val);
 
                   }
+                  // show private classes
                   else if($(this).attr('id') == "private-btn") {
                      $("#selectservice").val(3).selectmenu('refresh');
                    }
+                   else {
+                    $("#selectservice").val(1).selectmenu('refresh');
+                   }
                   
             });
+
 
             });
 

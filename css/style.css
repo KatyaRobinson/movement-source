@@ -371,7 +371,9 @@ button {
 }
 
 .kelly-img > img {
-    float: right;
+    width: 300px;
+    border-radius: 50px;
+    margin: 0 auto;
 }
 
 .divider{
@@ -483,7 +485,7 @@ a.selected-time {
     color: white;
     padding: 8px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .promo>a {
@@ -541,8 +543,10 @@ a.selected-time {
     border: 2px solid #286090;
     color: white;
 }
-
-
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover{
+    background-color: #26547E;
+    border: 1px solid #26547E;
+}
 
 .ui-datepicker-prev::before {
     content: "<";
@@ -669,6 +673,14 @@ A5622A - orange brown
 
 .appts-table tr:nth-child(even) {
     background-color: #E7E7E7;
+}
+
+#selected-options {
+    font-size: 1.2em;
+}
+#selected-options>p {
+    font-size: bold;
+    color: #007FFF;
 }
 
 

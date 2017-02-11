@@ -10,7 +10,10 @@ $(function() {
       // of an input field. Validation rules are defined
       // on the right side
       name: "required",
-      phone: "required",
+      phone: {
+            required: true,
+            phoneUS: true
+                },
       email: {
         required: true,
         // Specify that email should be validated
@@ -44,13 +47,13 @@ $(function() {
     success: function() {
      $("#customer-info").css('opacity', '0');
      $("#selected-options").append("<br />Your request has been sent <br />");
-     $("#selected-options").append("Name: " + name + "<br/>");
-     $("#selected-options").append("Phone: " + phone + "<br/>");
-     $("#selected-options").append("Email: " + email + "<br/>");
+     $("#selected-options").append("<strong>Name: </strong>" + name + "<br/>");
+     $("#selected-options").append("<strong>Phone: </strong>" + phone + "<br/>");
+     $("#selected-options").append("<strong>Email: </strong>" + email + "<br/>");
      if(!$(message)){
      $("#selected-options").append("Message: " + message + "<br/>");
    }
-     $("#selected-options").append("<strong>We will be in touch soon!</strong>");
+     $("#selected-options").append("<br /><p>We will be in touch soon!</p>");
     },
     error: function(responseData){
       console.log('Ajax request not received!');
