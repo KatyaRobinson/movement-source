@@ -143,6 +143,21 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
         echo "<ul class='col-sm-6 request'><li><strong>Date: </strong>" . $row['apptdate'] . "</li><li><strong>Time:</strong> " . $row['appttime'] . "</li> </ul>";
     }
     ?>
+    <button class="btn readMore"> Confirm Appointment</button>
+    <button class="btn readMore">Email this customer</button>
+
+    <div class="contact-customer">
+       <form>
+        <label for texarea>Message</label>
+        <textarea></textarea>
+        <input type="submit" name="submit" value="Send">
+        </form>
+    </div>
+
+    <div class="confirm-appt-form">
+        
+    </div>
+
 
 </div>
 </div>

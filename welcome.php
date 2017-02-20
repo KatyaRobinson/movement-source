@@ -231,6 +231,7 @@ $(document).ready(function()
                 <th>Name</th>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Status</th>
                 </tr>
             </thead>
             <tbody>";
@@ -241,15 +242,17 @@ $(document).ready(function()
          
          $id = $row['apptid'];  
          $link = 'view.php?id='.$id;
-         
+         $status = 'Not confirmed';
+         if ($row['status'] == 1) {
+            $status = "Confirmed";
+         } 
         
 
-       /* echo "<a href='$link'> Name: " . $row['name'] . ' Date: ' . $row['apptdate'] . ' Time: ' . $row['appttime'] . "</a><br />";*/
-
-         
-             echo   "<tr><td>" . $row['name'] . "</td>
+             echo   "<tr><td><a href=$link>" . $row['name'] . "</a></td>
                 <td>" . $row['apptdate'] . "</td>
-                <td>" . $row['appttime'] . "</td></tr>";
+                <td>" . $row['appttime'] . "</td><td>"
+                 . $status . "</td>
+                </tr>";
            
 
         }
