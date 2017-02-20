@@ -1,7 +1,9 @@
 <?php
+$id = (int)$_GET['id'];
 session_start();
 include("session.php");
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
+
 ?>
 
 
@@ -37,82 +39,9 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
     <!-- Book javascript link-->
     <script type = "text/javascript" src="js/book.js"></script>
-<style>
-/* 
-Generic Styling, for Desktops/Laptops 
-*/
-table { 
-  width: 100%; 
-  border-collapse: collapse; 
-}
-/* Zebra striping */
-tr:nth-of-type(odd) { 
-  background: #eee; 
-}
-th { 
-  background: #333; 
-  color: white; 
-  font-weight: bold; 
-}
-td, th { 
-  padding: 6px; 
-  border: 1px solid #ccc; 
-  text-align: left; 
-}
-/* 
-Max width before this PARTICULAR table gets nasty
-This query will take effect for any screen smaller than 760px
-and also iPads specifically.
-*/
-@media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
 
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr { 
-        display: block; 
-    }
-    
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr { 
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    
-    tr { border: 1px solid #ccc; }
-    
-    td { 
-        /* Behave  like a "row" */
-        border: none;
-        border-bottom: 1px solid #eee; 
-        position: relative;
-        padding-left: 50%; 
-    }
-    
-    td:before { 
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 6px;
-        left: 6px;
-        width: 45%; 
-        padding-right: 10px; 
-        white-space: nowrap;
-    }
-    
-}
-</style>
         
 
-<script type="text/javascript" src="js/jquery.tablesorter.min.js"></script> 
-<script>
-$(document).ready(function() 
-    { 
-        $("#myTable").tablesorter(); 
-    } 
-); 
-</script>
     </head>
 
     <body>
@@ -182,7 +111,7 @@ $(document).ready(function()
                     <?php 
                         if(isset($_SESSION['login_user'])) {
                        
-                        echo "<li class='active'><a href='welcome.php'>Appointments</a></li> " ;
+                        echo "<li><a href='welcome.php'>Appointments</a></li> " ;
                          echo "<li><a href='welcome.php'>Mail</a></li></ul>";
                     }
                  ?>
@@ -200,64 +129,21 @@ $(document).ready(function()
 	<div class="container">
 	<div class="row">
    <div class="box">
-      <h1>Welcome <?php echo $login_session; ?></h1> 
-      <h2><a href = "logout.php">Sign Out</a></h2>
-		<?php 
-	/*		$sql = "SELECT apptid, name, phone, email, message, apptdate, appttime FROM apptrequests";
-			$result = $conn->query($sql);
-			if ($result->num_rows > 0) {
-		    // output data of each row
-		    while($row = $result->fetch_assoc()) {
-		        echo "ID: " . $row["apptid"]. " - Name: " . $row["name"]. " Phone " . $row["phone"]. " - Email: " . $row["email"]. " - Message: " . $row["message"]. " - Date: " . $row["apptdate"]. " - Time: " . $row["appttime"].  "<br>";
-		    }
-		} else {
-		    echo "0 results";
-		}*/
+   
+   <h2 class="text-center">Appointment Request</h2>
+    <hr>
 
-		$query = "SELECT * FROM apptrequests"; //You don't need a ; like you do in SQL
-		$result = $conn->query($query);
+   <?php 
+       $query = "SELECT * FROM apptrequests WHERE apptid=$id"; //You don't need a ; like you do in SQL
+        $result = $conn->query($query); 
+         $conn->close();
+        while($row = $result->fetch_assoc()) {   //Creates a loop to loop through results
 
+        echo "<ul class='col-sm-6 request'><li><strong>Name:</strong> " . $row['name'] . "</li> <li><strong>Phone number: </strong>" . $row['phone']  . "</li> <li><strong>Email: </strong>" . $row['email'] . "</li><li><strong>Message: </strong>" . $row['message'] . "</li></ul>";
+        echo "<ul class='col-sm-6 request'><li><strong>Date: </strong>" . $row['apptdate'] . "</li><li><strong>Time:</strong> " . $row['appttime'] . "</li> </ul>";
+    }
+    ?>
 
-
-
-        $conn->close();
-       
-
-		//echo "<table class='appts-table'>"; // start a table tag in the HTML
-
-         echo "<table id='myTable' class='tablesorter'>
-            <thead>
-                <tr>
-                <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>";
-
-		while($row = $result->fetch_assoc()) {   //Creates a loop to loop through results
-            
-          //print_r($row);
-         
-         $id = $row['apptid'];  
-         $link = 'view.php?id='.$id;
-         
-        
-
-       /* echo "<a href='$link'> Name: " . $row['name'] . ' Date: ' . $row['apptdate'] . ' Time: ' . $row['appttime'] . "</a><br />";*/
-
-         
-             echo   "<tr><td>" . $row['name'] . "</td>
-                <td>" . $row['apptdate'] . "</td>
-                <td>" . $row['appttime'] . "</td></tr>";
-           
-
-        }
-
-        echo  "</tbody></table>";
-
-		
-		?>
 </div>
 </div>
 </div>

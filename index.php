@@ -1,6 +1,9 @@
 <?php
-   include('session.php');
+session_start();
+$_SESSION['url'] = $_SERVER['REQUEST_URI'];
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,13 +45,22 @@
 
         <div class="row header-row">
             <div class="col-sm-3 logo">
-                <a href="index.html">
+                <a href="index.php">
                 <img src="./img/logo.png" width="100px"> </a>
             </div>
 
-            <div class="col-sm-6 brand"><a href = "index.html">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
+            <div class="col-sm-6 brand"><a href = "index.php">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
+            <div class="col-sm-3 login">
+                    <?php 
+                        if(isset($_SESSION['login_user'])) {
+                        echo "Welcome, " . $_SESSION['login_user']; 
+                        echo "<br /><a href = 'logout.php'>Sign Out</a>";
+                    }
+                 ?>
+            </div>
             <div class="col-sm-3 contact"> <button class="contact-btn">Contact Us</button>
             </div>
+             
         </div>
 
         <!-- Navigation -->
@@ -66,8 +78,17 @@
                 <a class="navbar-brand" href="index.html">Movement Source</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <?php 
+                        if(isset($_SESSION['login_user'])) {
+                       
+                        echo "<ul class='admin-nav'>";
+                    }
+                 ?>
                 <ul class="nav navbar-nav">
+                
+
                     <span id="nav-logo">
                         <a href="index.html">
                         <img src="./img/logo.png"> </a>
@@ -84,8 +105,18 @@
                     <li>
                         <a href="contact.html">Contact</a>
                     </li>
+                    <?php 
+                        if(isset($_SESSION['login_user'])) {
+                       
+                        echo "<li><a href='welcome.php'>Appointments</a></li> " ;
+                         echo "<li><a href='welcome.php'>Mail</a></li></ul>";
+                    }
+                 ?>
                 </ul>
+
+                 
             </div>
+
             <!-- /.navbar-collapse -->
             </div> <!--end .container-->
     </nav>
@@ -250,12 +281,14 @@
 <footer>
         <div class="container">
             <div class="row">
+            <a href="welcome.php">Admin Login</a>
                 <div class="col-lg-12 text-center span-block">
                   <span><a href="index.html">Movement Source Pilates Studio</a></span>
                   <span>Sweat Fitness 2nd Fl - 1509 E. Passyunk Ave - Phila PA 19147</span>
                   <span>info@movementsource.com</span>
                   <span id="copy">&copy;2017 Movement Source </span>
                 </div>
+
             </div>
         </div>
     </footer>

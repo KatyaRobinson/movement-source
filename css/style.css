@@ -683,4 +683,29 @@ A5622A - orange brown
     color: #007FFF;
 }
 
+/* admin navigation styles*/
+
+.admin-nav > ul > li > a {
+    font-size: 0.7em;
+    padding-left: 15px;
+    display: inline-block;
+    padding-top: 19px;
+    padding-right: 15px;
+}
+
+.admin-nav {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+
+
+.request>li {
+    list-style-type: none;
+}
+
+
+
+
+
 
