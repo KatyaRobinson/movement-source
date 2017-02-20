@@ -56,10 +56,14 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                         echo "Welcome, " . $_SESSION['login_user']; 
                         echo "<br /><a href = 'logout.php'>Sign Out</a>";
                     }
+                    else echo "<button class='contact-btn'>Contact Us</button>
+            </div>"
                  ?>
             </div>
-            <div class="col-sm-3 contact"> <button class="contact-btn">Contact Us</button>
-            </div>
+            <!-- <div class="col-sm-3 contact"> 
+
+            <button class="contact-btn">Contact Us</button>
+            </div> -->
              
         </div>
 
@@ -75,7 +79,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Movement Source</a>
+                <a class="navbar-brand" href="index.php">Movement Source</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -90,20 +94,20 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 
 
                     <span id="nav-logo">
-                        <a href="index.html">
+                        <a href="index.php">
                         <img src="./img/logo.png"> </a>
                     </span>
                     <li class="active">
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
+                        <a href="services.php">Services</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <?php 
                         if(isset($_SESSION['login_user'])) {
@@ -182,7 +186,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
                     <div class="row">
                         <div class="col-sm-12">                   
-                         <a href="services.html#calendar"> <button class="btn apptBtn" value="Request Appointment">Request Appointment</button></a>
+                         <a href="services.php#calendar"> <button class="btn apptBtn" value="Request Appointment">Request Appointment</button></a>
                        </div>
                     </div>
 
@@ -266,7 +270,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="col-md-6">
                     <p>Pilates was developed by Joseph Pilates and brought to America in the late 1920’s and was originally called “Contrology.”  Traditional Pilates is a specific series of exercises performed on the Pilates Equipment and Pilates Mat to find equal amounts of stretch and strength in the body.  Exercises are executed in a precise form and alignment to uphold the ideas of control and efficiency.  The Pilates method focuses on mind - body balance that can be utilized during a Pilates session and throughout all aspects of life to enhance any activity.  Practiced regularly, Pilates can improve posture, strength, flexibility and stability.</p>
                 </div>
-                  <a href="http://www.pilates.com/BBAPP/V/pilates/index.html" target="_blanc"><button class="btn readMore">Read more on pilates.com</button></a>
+                  <a href="http://www.pilates.com/BBAPP/V/pilates/index.php" target="_blanc"><button class="btn readMore">Read more on pilates.com</button></a>
             </div>
         </div>  
 
@@ -281,9 +285,14 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 <footer>
         <div class="container">
             <div class="row">
-            <a href="welcome.php">Admin Login</a>
+            <?php
+             if(!isset($_SESSION['login_user'])) {
+                        echo "<a href='welcome.php'>Admin Login</a>";
+                    }
+            ?>
+            
                 <div class="col-lg-12 text-center span-block">
-                  <span><a href="index.html">Movement Source Pilates Studio</a></span>
+                  <span><a href="index.php">Movement Source Pilates Studio</a></span>
                   <span>Sweat Fitness 2nd Fl - 1509 E. Passyunk Ave - Phila PA 19147</span>
                   <span>info@movementsource.com</span>
                   <span id="copy">&copy;2017 Movement Source </span>

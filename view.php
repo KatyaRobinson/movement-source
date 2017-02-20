@@ -78,7 +78,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Movement Source</a>
+                <a class="navbar-brand" href="index.php">Movement Source</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -93,20 +93,20 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 
 
                     <span id="nav-logo">
-                        <a href="index.html">
+                        <a href="index.php">
                         <img src="./img/logo.png"> </a>
                     </span>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
+                        <a href="services.php">Services</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
                     <?php 
                         if(isset($_SESSION['login_user'])) {
@@ -168,7 +168,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             <div class="row">
             <a href="welcome.php">Admin Login</a>
                 <div class="col-lg-12 text-center span-block">
-                  <span><a href="index.html">Movement Source Pilates Studio</a></span>
+                  <span><a href="index.php">Movement Source Pilates Studio</a></span>
                   <span>Sweat Fitness 2nd Fl - 1509 E. Passyunk Ave - Phila PA 19147</span>
                   <span>info@movementsource.com</span>
                   <span id="copy">&copy;2017 Movement Source </span>

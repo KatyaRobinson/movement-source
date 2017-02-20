@@ -411,12 +411,16 @@ $(function(){
         $("body, html").animate({ 
                      scrollTop: $('#schedule').offset().top - 200
                      }, 300);
+
        displaySelectedDay();
+
      })
 
   )
      
 });
+
+
 
 
 });   

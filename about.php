@@ -3,6 +3,7 @@ session_start();
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,21 +45,26 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
         <div class="row header-row">
             <div class="col-sm-3 logo">
-                <a href="index.html">
+                <a href="index.php">
                 <img src="./img/logo.png" width="100px"> </a>
             </div>
 
-            <div class="col-sm-6 brand"><a href = "index.html">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
+            <div class="col-sm-6 brand"><a href = "index.php">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
             <div class="col-sm-3 login">
                     <?php 
                         if(isset($_SESSION['login_user'])) {
                         echo "Welcome, " . $_SESSION['login_user']; 
                         echo "<br /><a href = 'logout.php'>Sign Out</a>";
                     }
+                    else echo "<button class='contact-btn'>Contact Us</button>
+            </div>"
                  ?>
             </div>
-            <div class="col-sm-3 contact"> <button class="contact-btn">Contact Us</button>
-            </div>
+            <!-- <div class="col-sm-3 contact"> 
+
+            <button class="contact-btn">Contact Us</button>
+            </div> -->
+             
         </div>
 
         <!-- Navigation -->
@@ -73,29 +79,48 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Movement Source</a>
+                <a class="navbar-brand" href="index.php">Movement Source</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <?php 
+                        if(isset($_SESSION['login_user'])) {
+                       
+                        echo "<ul class='admin-nav'>";
+                    }
+                 ?>
                 <ul class="nav navbar-nav">
+                
+
                     <span id="nav-logo">
-                        <a href="index.html">
+                        <a href="index.php">
                         <img src="./img/logo.png"> </a>
                     </span>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li class="active">
-                        <a href="about.html">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="services.html">Services</a>
+                        <a href="services.php">Services</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.php">Contact</a>
                     </li>
+                    <?php 
+                        if(isset($_SESSION['login_user'])) {
+                       
+                        echo "<li><a href='welcome.php'>Appointments</a></li> " ;
+                         echo "<li><a href='welcome.php'>Mail</a></li></ul>";
+                    }
+                 ?>
                 </ul>
+
+                 
             </div>
+
             <!-- /.navbar-collapse -->
             </div> <!--end .container-->
     </nav>
@@ -168,7 +193,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                         </ul>
                     </div>
                      <div class="col-sm-12">                   
-                         <a href="services.html#calendar"> <button class="btn apptBtn" value="Request Appointment">Request Appointment</button></a>
+                         <a href="services.php#calendar"> <button class="btn apptBtn" value="Request Appointment">Request Appointment</button></a>
                        </div>
                 </div>  
                 
@@ -191,16 +216,22 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 <footer>
         <div class="container">
             <div class="row">
+            <?php
+             if(!isset($_SESSION['login_user'])) {
+                        echo "<a href='welcome.php'>Admin Login</a>";
+                    }
+            ?>
+            
                 <div class="col-lg-12 text-center span-block">
-                  <span><a href="index.html">Movement Source Pilates Studio</a></span>
+                  <span><a href="index.php">Movement Source Pilates Studio</a></span>
                   <span>Sweat Fitness 2nd Fl - 1509 E. Passyunk Ave - Phila PA 19147</span>
                   <span>info@movementsource.com</span>
                   <span id="copy">&copy;2017 Movement Source </span>
                 </div>
+
             </div>
         </div>
     </footer>
 
 
 </html>
-   

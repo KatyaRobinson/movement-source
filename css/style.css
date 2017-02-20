@@ -689,7 +689,7 @@ A5622A - orange brown
     font-size: 0.7em;
     padding-left: 15px;
     display: inline-block;
-    padding-top: 19px;
+    padding-top: 33px;
     padding-right: 15px;
 }
 
@@ -697,6 +697,7 @@ A5622A - orange brown
     margin: 0;
     width: 100%;
     padding: 0;
+    height: 90px;
 }
 
 
@@ -705,7 +706,10 @@ A5622A - orange brown
 }
 
 
-
+#map {
+  height: 400px;
+  width: 100%;
+ }
 
 
 
