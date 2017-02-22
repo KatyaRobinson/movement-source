@@ -38,7 +38,11 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
     <script type = "text/javascript" src="js/book.js"></script>
 
 <!--Google Maps API key issued on 02/20/2017: AIzaSyDtBQU-u-YJVSyve5-iEWbAjNBjDPsakzk -->
-        
+        <!-- form validator script-->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+     <script type = "text/javascript" src="js/form-validator.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+
 
     </head>
 
@@ -132,13 +136,12 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Contact
-                        <strong>Movement Source</strong>
+                    <h2 class="intro-text text-center">Stop by for a 
+                        <strong>visit</strong>
                     </h2>
                     <hr>
                 </div>
                 <div class="col-md-8">
-                    <h3>Stop by for a visit!</h3>
                         <div id="map"></div>
 
                         <script>
@@ -181,32 +184,33 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                         <strong>form</strong>
                     </h2>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem.</p>
+                    
                     <form role="form" id="contact-form">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="name" id="name">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" name="email" id="email">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Phone Number</label>
-                                <input type="tel" class="form-control">
+                                <input type="tel" class="form-control" name="phone" id="phone">
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label>Message</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <textarea class="form-control" rows="6" name="message" id="message"></textarea>
                             </div>
                             <div class="form-group col-lg-12">
                                 <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" name="submit" class="btn btn-default">Submit</button>
                             </div>
                         </div>
                     </form>
+                    <p class = "message-sent"> </p>
                 </div>
             </div>
         </div>

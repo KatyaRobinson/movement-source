@@ -50,7 +50,7 @@ $(function() {
      $("#selected-options").append("<strong>Name: </strong>" + name + "<br/>");
      $("#selected-options").append("<strong>Phone: </strong>" + phone + "<br/>");
      $("#selected-options").append("<strong>Email: </strong>" + email + "<br/>");
-     if(!$(message)){
+     if($(message) !== ''){
      $("#selected-options").append("Message: " + message + "<br/>");
    }
      $("#selected-options").append("<br /><p>We will be in touch soon!</p>");
@@ -66,4 +66,63 @@ $(function() {
   updateCalendar();
     }
   });
+
+
+// Validation of the form ion Contact page
+
+
+$("form[id='contact-form']").validate({
+    // Specify validation rules
+    rules: {
+      
+      name: "required",
+      phone: {
+            required: false,
+            phoneUS: true
+                },
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      name: "Please enter your firstname",
+      phone: "Please enter your phone number",
+      email: "Please enter a valid email address"
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+
+  var name = $("#name").val();
+  var phone = $("#phone").val();
+  var email = $("#email").val();
+  var message = $("#message").val();
+
+
+  var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message;
+  $.ajax({
+    url: 'contact-form.php',
+    type: 'POST',
+    data: dataString,
+    success: function() {
+     $("#contact-form").find('input').val('');
+     $("#contact-form").find('textarea').val('');
+     $(".message-sent").html("Your message has been sent");
+    },
+    error: function(responseData){
+      console.log('Ajax request not received!');
+    }
+  });
+  //clear inputs after submitting
+ 
+  return false; // prevent redirecting
+
+    }
+  });
+
+
 });

@@ -130,6 +130,8 @@ $(document).ready(function()
                         echo "Welcome, " . $_SESSION['login_user']; 
                         echo "<br /><a href = 'logout.php'>Sign Out</a>";
                     }
+                    else echo "<button class='contact-btn'>Contact Us</button>
+            </div>"
                  ?>
             </div>
             <div class="col-sm-3 contact"> <button class="contact-btn">Contact Us</button>

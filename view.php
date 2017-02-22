@@ -3,7 +3,7 @@ $id = (int)$_GET['id'];
 session_start();
 include("session.php");
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
-
+echo "<p id='id'>" . $id . "</p>";
 ?>
 
 
@@ -39,13 +39,13 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
     <!-- Book javascript link-->
     <script type = "text/javascript" src="js/book.js"></script>
-
+    <script src="js/view-btns.js"></script>
         
 
     </head>
 
     <body>
-
+        
         <div class="row header-row">
             <div class="col-sm-3 logo">
                 <a href="index.php">
@@ -54,11 +54,13 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
             <div class="col-sm-6 brand"><a href = "index.php">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
             <div class="col-sm-3 login">
-                    <?php 
+                   <?php 
                         if(isset($_SESSION['login_user'])) {
                         echo "Welcome, " . $_SESSION['login_user']; 
                         echo "<br /><a href = 'logout.php'>Sign Out</a>";
                     }
+                    else echo "<button class='contact-btn'>Contact Us</button>
+            </div>"
                  ?>
             </div>
             <div class="col-sm-3 contact"> <button class="contact-btn">Contact Us</button>
@@ -134,7 +136,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
     <hr>
 
    <?php 
-       $query = "SELECT * FROM apptrequests WHERE apptid=$id"; //You don't need a ; like you do in SQL
+       $query = "SELECT * FROM apptrequests WHERE apptid=$id"; 
         $result = $conn->query($query); 
          $conn->close();
         while($row = $result->fetch_assoc()) {   //Creates a loop to loop through results
@@ -143,15 +145,20 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
         echo "<ul class='col-sm-6 request'><li><strong>Date: </strong>" . $row['apptdate'] . "</li><li><strong>Time:</strong> " . $row['appttime'] . "</li> </ul>";
     }
     ?>
-    <button class="btn readMore"> Confirm Appointment</button>
-    <button class="btn readMore">Email this customer</button>
-
+    <div class="col-sm-12">
+        <button class="btn view-btns" id="confirm-btn">Confirm</button>
+        <button class="btn view-btns" id="delete-btn">Delete</button>
+        <button class="btn view-btns" id="contact-btn">Contact</button>
+    </div>
+    
+    <div class="col-md-12">
     <div class="contact-customer">
        <form>
         <label for texarea>Message</label>
         <textarea></textarea>
         <input type="submit" name="submit" value="Send">
         </form>
+    </div>
     </div>
 
     <div class="confirm-appt-form">
@@ -163,10 +170,45 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 </div>
 </div>
 
+
+<script type="text/javascript">
+       
+        $id = $("#id").text();
+
+         $("#delete-btn").on( "click", function() {
+  if (confirm("Are you sure?")) {
+        deleteRecord($id);
+
+    }
+});
+
+                function deleteRecord(id) {
+                    var apptid = id;
+                     var dataString = 'apptid=' + apptid;
+                    $.ajax({
+                    url: 'php/delete-btn.php',
+                    type: 'POST',
+                    data: dataString,
+                    success: function() {
+                       $(".request").text("This record has been deleted");
+                     },
+                    error: function(responseData){
+                        console.log(dataString);
+                      console.log('Ajax request not received!');
+                    }
+                  });
+                }
+     </script>   
+</body>
 <footer>
         <div class="container">
             <div class="row">
-            <a href="welcome.php">Admin Login</a>
+            <?php
+             if(!isset($_SESSION['login_user'])) {
+                        echo "<a href='welcome.php'>Admin Login</a>";
+                    }
+            ?>
+            
                 <div class="col-lg-12 text-center span-block">
                   <span><a href="index.php">Movement Source Pilates Studio</a></span>
                   <span>Sweat Fitness 2nd Fl - 1509 E. Passyunk Ave - Phila PA 19147</span>
@@ -179,6 +221,4 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
     </footer>
 
 
-
-   
 </html>

@@ -689,17 +689,17 @@ A5622A - orange brown
     font-size: 0.7em;
     padding-left: 15px;
     display: inline-block;
-    padding-top: 33px;
+    padding-top: 15px;
     padding-right: 15px;
-}
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+} 
 
 .admin-nav {
     margin: 0;
-    width: 100%;
     padding: 0;
-    height: 90px;
-}
-
+   }
 
 .request>li {
     list-style-type: none;
@@ -709,7 +709,23 @@ A5622A - orange brown
 #map {
   height: 400px;
   width: 100%;
+  border: 3px solid grey;
  }
+
+.view-btns {
+    background-color: transparent;
+    border: 2px solid grey;
+    color: grey;
+    width: 32%; 
+}
+
+
+.message-sent {
+    text-align: center;
+    color: green;
+}
+
+
 
 
 
