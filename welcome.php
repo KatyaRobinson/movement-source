@@ -43,7 +43,8 @@ Generic Styling, for Desktops/Laptops
 */
 table { 
   width: 100%; 
-  border-collapse: collapse; 
+  border-collapse: collapse;
+  min-height: 100vh; 
 }
 /* Zebra striping */
 tr:nth-of-type(odd) { 

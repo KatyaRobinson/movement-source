@@ -131,7 +131,7 @@ echo "<p id='id'>" . $id . "</p>";
 	<div class="container">
 	<div class="row">
    <div class="box">
-   
+   <a href = 'welcome.php' class="btn" id="back-btn">Back to Appointments</a>
    <h2 class="text-center">Appointment Request</h2>
     <hr>
 
@@ -176,14 +176,19 @@ echo "<p id='id'>" . $id . "</p>";
         $id = $("#id").text();
 
          $("#delete-btn").on( "click", function() {
-  if (confirm("Are you sure?")) {
-        deleteRecord($id);
+              if (confirm("Are you sure you want to delete this appointment?")) {
+                    deleteRecord($id);
 
-    }
-});
+                }
+            });
+         $("#confirm-btn").on("click", function(){
+            if(confirm("Are you sure you want to confirm this appointment?")) {
+                confirmRecord($id);
+            }
+         })
 
                 function deleteRecord(id) {
-                    var apptid = id;
+                     var apptid = id;
                      var dataString = 'apptid=' + apptid;
                     $.ajax({
                     url: 'php/delete-btn.php',
@@ -191,13 +196,36 @@ echo "<p id='id'>" . $id . "</p>";
                     data: dataString,
                     success: function() {
                        $(".request").text("This record has been deleted");
+                       $(".view-btns").css("display", "none");
                      },
                     error: function(responseData){
-                        console.log(dataString);
+                    
                       console.log('Ajax request not received!');
                     }
                   });
                 }
+
+                function confirmRecord(id) {
+                     var apptid = id;
+                     var dataString = 'apptid=' + apptid;
+                    $.ajax({
+                    url: 'php/confirm-btn.php',
+                    type: 'POST',
+                    data: dataString,
+                    success: function() {
+                       $(".request").append("This record has been confirmed");
+                       $("#confirm-btn").text("uncomfirmed");
+                     },
+                    error: function(responseData){
+                        
+                      console.log('Ajax request not received!');
+                    }
+                  });
+                }
+
+
+
+
      </script>   
 </body>
 <footer>
