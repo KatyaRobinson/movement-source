@@ -720,6 +720,8 @@ A5622A - orange brown
     display: block;
     float: left;
     margin-left: 4%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
@@ -742,4 +744,5 @@ A5622A - orange brown
 .faded {
     color: lightgrey;
 }
+
 

@@ -4,6 +4,7 @@ session_start();
 include("session.php");
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 echo "<p id='id' class='hidden'>" . $id . "</p>";
+
 ?>
 
 
@@ -143,6 +144,7 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
 
         echo "<ul class='col-sm-12 request text-center'><li><strong>Name:</strong> " . $row['name'] . "</li> <li><strong>Phone number: </strong>" . $row['phone']  . "</li> <li><strong>Email: </strong>" . $row['email'] . "</li><li><strong>Message: </strong>" . $row['message'] . "</li><li><strong>Date: </strong>" . $row['apptdate'] . "</li><li><strong>Time:</strong> " . $row['appttime'] . "</li><li><strong>Status: </strong><span id='statusAppt'></span></li> </ul>";
         echo "<p id='status' class='hidden'>" . $row['status'] . "</p>";
+        $name = $row['name'];
     }
     ?>
     
@@ -153,15 +155,29 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
         <button class="view-btns" id="contact-btn">Contact Client</button>
     </div>
     
-    <div class="col-md-12">
-    <div class="contact-customer">
-       <form>
-        <label for texarea>Message</label>
-        <textarea></textarea>
-        <input type="submit" name="submit" value="Send">
-        </form>
-    </div>
-    </div>
+   <form role="form" id="contact-client" method="POST">
+                        <div class="row">
+
+                        <?php 
+                        echo '<h2 class="text-center">Contact ' . $name . '</h2>';
+                        echo '<hr>';
+                         ?>
+                            <div class="form-group col-lg-4">
+                                <label>Subject</label>
+                                <input type="text" class="form-control" name="subject" id="subject">
+                            </div>
+                            
+                            <div class="form-group col-lg-12">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="6" name="message" id="message"></textarea>
+                            </div>
+                            <div class="form-group col-lg-12">
+                              
+                                <button type="submit" name="submit" class="btn btn-default">Contact Client</button>
+                            </div>
+                        </div>
+                    </form>
+
 
 
 

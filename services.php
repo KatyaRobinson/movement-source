@@ -388,50 +388,31 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                        <div id="customer-info"> 
                             
 
-                            <form method= "POST" class="form-group" id="cust-contact">
+                            <form role="form" id="cust-contact" method="POST">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="name" id="name">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Email Address</label>
+                                <input type="email" class="form-control" name="email" id="email">
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" name="phone" id="phone">
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group col-lg-12">
+                                <label>Message</label>
+                                <textarea class="form-control" rows="6" name="message" id="cust-message"></textarea>
+                            </div>
+                            <div class="form-group col-lg-12">
                                 
-                                <!--Name-->
-                               
-                                
-                                <div class="control-group col-md-4" >
-                                    <label class="control-label" for="name">Name</label>
-                                     <div class="controls">
-                                         <input type="text" name="name" id="name" placeholder="Your Name">
-                                     </div>
-                                </div>
-
-
-                                <!--Phone number-->
-                                
-                            
-
-                                 <div class="control-group col-md-4">
-                                <label class="control-label" for="phone">Phone</label>
-                                 <div class="controls">
-                                   <input type="text" name="phone" id="phone" placeholder="123-456-7890">
-                               </div>
-                                  </div>
-                                <!--Email Address-->
-                                
-                              
-                              <div class="control-group col-md-4">
-                                 <label class="control-label" for="email">Email Address</label>
-                                 <div class="controls">
-                                   <input type="text" name="email" id="email" placeholder="name@domain.com">
-                                 </div>
-                                 </div>
-
-                           <!--Optional message-->
-                                <div class="control-group col-md-12">
-                                        <label class="control-label" for="message">Message</label>
-                                        <div class="controls">
-                                            <textarea name="message" id="cust-message" rows="8" class="span5" placeholder="The message you want to send to us (optional)."></textarea>
-                                        </div>
-                                    </div>
-
-
-                                <button type="submit" name="submit" value="Request appointment" id="request-appt" class="btn readMore">Request Appointment</button>
-                            </form> <!-- end cust-contact-->
+                                <button type="submit" id="request-appt" name="submit" class="btn btn-default">Request Appointment</button>
+                            </div>
+                        </div>
+                    </form>
 
                         
                   </div> 
