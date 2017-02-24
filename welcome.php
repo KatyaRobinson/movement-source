@@ -110,7 +110,7 @@ only screen and (max-width: 760px),
 <script>
 $(document).ready(function() 
     { 
-        $("#myTable").tablesorter(); 
+        $("#myTable").tablesorter({sortList: [[1,0], [1,0]]}); 
     } 
 ); 
 </script>
@@ -186,7 +186,7 @@ $(document).ready(function()
                         if(isset($_SESSION['login_user'])) {
                        
                         echo "<li class='active'><a href='welcome.php'>Appointments</a></li> " ;
-                         echo "<li><a href='welcome.php'>Mail</a></li></ul>";
+                         echo "<li><a href='mail.php'>Mail</a></li></ul>";
                     }
                  ?>
                 </ul>
@@ -243,10 +243,14 @@ $(document).ready(function()
          
          $id = $row['apptid'];
          $apptdate = $row['apptdate'];
+         $name = $row['name'];
+         $appttime = $row['appttime'];
          $today = date("Y-m-d");
          //check if appointment date is in the past and if so, fade it
          if ($apptdate < $today){
             $apptdate = "<span class='faded'>" . $apptdate . "</span>";
+            $appttime = "<span class='faded'>" . $appttime . "</span>";
+            $name = "<span class='faded'>" . $name . "</span>";
          }
          //compose a dynamic PHP link with the appointment record id 
          $link = 'view.php?id='.$id;
@@ -257,9 +261,9 @@ $(document).ready(function()
          } 
         
             // display the rest of the columns of the table
-             echo   "<tr><td><a href=$link>" . $row['name'] . "</a></td>
+             echo   "<tr><td><a href=$link>" . $name . "</a></td>
                 <td>" . $apptdate . "</td>
-                <td>" . $row['appttime'] . "</td><td>"
+                <td>" . $appttime . "</td><td>"
                  . $status . "</td>
                 </tr>";
            

@@ -206,7 +206,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                             </div>
                             <div class="form-group col-lg-12">
                                 <input type="hidden" name="save" value="contact">
-                                <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" name="submit" class="btn readMore">Submit</button>
                             </div>
                         </div>
                     </form>

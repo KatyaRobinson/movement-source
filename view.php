@@ -138,13 +138,22 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
 
    <?php 
        $query = "SELECT * FROM apptrequests WHERE apptid=$id"; 
+       
+
         $result = $conn->query($query); 
          $conn->close();
         while($row = $result->fetch_assoc()) {   //Creates a loop to loop through results
-
-        echo "<ul class='col-sm-12 request text-center'><li><strong>Name:</strong> " . $row['name'] . "</li> <li><strong>Phone number: </strong>" . $row['phone']  . "</li> <li><strong>Email: </strong>" . $row['email'] . "</li><li><strong>Message: </strong>" . $row['message'] . "</li><li><strong>Date: </strong>" . $row['apptdate'] . "</li><li><strong>Time:</strong> " . $row['appttime'] . "</li><li><strong>Status: </strong><span id='statusAppt'></span></li> </ul>";
-        echo "<p id='status' class='hidden'>" . $row['status'] . "</p>";
         $name = $row['name'];
+        $phone = $row['phone'];
+        $message = $row['message'];
+        $email = $row['email'];
+        $appttime = $row['appttime'];
+        $apptdate = $row['apptdate'];
+
+        echo "<ul class='col-sm-12 request text-center'><li><strong>Name:</strong> " . $name . "</li> <li><strong>Phone number: </strong>" . $phone  . "</li> <li><strong>Email: </strong>" . $email . "</li><li><strong>Message: </strong>" . $message . "</li><li><strong>Date: </strong>" . $apptdate . "</li><li><strong>Time:</strong> " . $appttime . "</li><li><strong>Status: </strong><span id='statusAppt'></span></li> </ul>";
+        echo "<p id='status' class='hidden'>" . $row['status'] . "</p>";
+       
+
     }
     ?>
     
@@ -162,14 +171,17 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
                         echo '<h2 class="text-center">Contact ' . $name . '</h2>';
                         echo '<hr>';
                          ?>
-                            <div class="form-group col-lg-4">
+                            <div class="form-group col-lg-12">
                                 <label>Subject</label>
                                 <input type="text" class="form-control" name="subject" id="subject">
                             </div>
                             
                             <div class="form-group col-lg-12">
                                 <label>Message</label>
-                                <textarea class="form-control" rows="6" name="message" id="message"></textarea>
+                                <textarea class="form-control" rows="6" name="message" id="message">
+                                  ..............................
+                                  This is message is in reference to the appointmet request that was made by <?php echo $name;?> for <?php echo $apptdate;?>, <?php echo $appttime;?>. 
+                                </textarea>
                             </div>
                             <div class="form-group col-lg-12">
                               

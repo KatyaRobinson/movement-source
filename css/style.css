@@ -589,6 +589,7 @@ a.selected-time {
     text-align: center;
     width: 50px;
     background-color: rgba(125,123,122,0.1);
+    z-index: 999;
 }
 
 .arrow:hover {
@@ -742,7 +743,15 @@ A5622A - orange brown
     color: red;
 }
 .faded {
-    color: lightgrey;
+   color: rgba(51,51,51, 0.5);
 }
 
+#cust-contact {
+    width: 90%;
+    margin: 0 auto;
+}
+
+ .form-horizontal .form-group{
+    margin-left: 0px;
+}
 

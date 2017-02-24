@@ -409,7 +409,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                             </div>
                             <div class="form-group col-lg-12">
                                 
-                                <button type="submit" id="request-appt" name="submit" class="btn btn-default">Request Appointment</button>
+                                <button type="submit" id="request-appt" name="submit" class="btn readMore">Request Appointment</button>
                             </div>
                         </div>
                     </form>
