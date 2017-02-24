@@ -3,9 +3,9 @@
 include("../config.php");
 
 $id = $_POST['apptid'];
+$status = $_POST['status'];
 
-
-$sql = "UPDATE apptrequests SET status = true WHERE apptid = $id";
+$sql = "UPDATE apptrequests SET status = $status WHERE apptid = $id";
      
 if ($conn->query($sql) === TRUE) {
     echo "Record deleted";

@@ -12,7 +12,7 @@ $time = $_POST['time'];
 $sql = "INSERT INTO apptrequests (name, phone, email, message, apptdate, appttime)
         VALUES ('$name', '$phone', '$email', '$message', '$date', '$time')";
 
-	$to = "hello@katyagurina.com"; // owner's email address
+	$to = "katya.gurina@yahoo.com"; // owner's email address
     $from = $_POST['email']; // sender's Email address
     $subject = "Appointment Request";
     $message = $_POST['name'] . " wrote the following:" . "\n\n" . $_POST['message'];

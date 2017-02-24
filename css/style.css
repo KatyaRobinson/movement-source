@@ -715,8 +715,11 @@ A5622A - orange brown
 .view-btns {
     background-color: transparent;
     border: 2px solid grey;
-    color: grey;
-    width: 32%; 
+    color: grey!important;
+    width: 28%;
+    display: block;
+    float: left;
+    margin-left: 4%;
 }
 
 
@@ -725,7 +728,18 @@ A5622A - orange brown
     color: green;
 }
 
+.hidden {
+    display: block;
+}
 
+.confirmed {
+    color: green;
+}
 
-
+.not-confirmed {
+    color: red;
+}
+.faded {
+    color: lightgrey;
+}
 

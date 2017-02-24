@@ -150,9 +150,7 @@ function showAllDays(day){
 
     //function to stick navbar to top when scrolling
           $(window).scroll(function () {
-          //if you hard code, then use console
-          //.log to determine when you want the 
-          //nav bar to stick. 
+          
         if ($(window).scrollTop() > 143) {
           $('.navbar-default').addClass('navbar-fixed-top');
 

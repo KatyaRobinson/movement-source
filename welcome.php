@@ -203,8 +203,8 @@ $(document).ready(function()
 	<div class="container">
 	<div class="row">
    <div class="box">
-      <h1>Welcome <?php echo $login_session; ?></h1> 
-      <h2><a href = "logout.php">Sign Out</a></h2>
+      <h1 class="text-center">Appointment Requests</h1>
+      
 		<?php 
 	/*		$sql = "SELECT apptid, name, phone, email, message, apptdate, appttime FROM apptrequests";
 			$result = $conn->query($sql);
@@ -226,7 +226,7 @@ $(document).ready(function()
         $conn->close();
        
 
-
+        // start table
          echo "<table id='myTable' class='tablesorter'>
             <thead>
                 <tr>
@@ -240,18 +240,25 @@ $(document).ready(function()
 
 		while($row = $result->fetch_assoc()) {   //Creates a loop to loop through results
             
-          //print_r($row);
          
-         $id = $row['apptid'];  
+         $id = $row['apptid'];
+         $apptdate = $row['apptdate'];
+         $today = date("Y-m-d");
+         //check if appointment date is in the past and if so, fade it
+         if ($apptdate < $today){
+            $apptdate = "<span class='faded'>" . $apptdate . "</span>";
+         }
+         //compose a dynamic PHP link with the appointment record id 
          $link = 'view.php?id='.$id;
-         $status = 'Not confirmed';
+         // add a class to the status class according to the value (confirmed will be displayed in green and unconfirmed - in red)
+         $status = "<span class='not-confirmed'>Not confirmed</span>";
          if ($row['status'] == 1) {
-            $status = "Confirmed";
+            $status = "<span class='confirmed'>Confirmed</span>";
          } 
         
-
+            // display the rest of the columns of the table
              echo   "<tr><td><a href=$link>" . $row['name'] . "</a></td>
-                <td>" . $row['apptdate'] . "</td>
+                <td>" . $apptdate . "</td>
                 <td>" . $row['appttime'] . "</td><td>"
                  . $status . "</td>
                 </tr>";

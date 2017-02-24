@@ -380,6 +380,11 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                         <div id="schedule" class="col-md-6"></div>
                   </div> 
                         <div id="selected-options" class="text-center"></div>
+
+
+
+
+
                        <div id="customer-info"> 
                             
 
