@@ -54,20 +54,14 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
             </div>
 
             <div class="col-sm-6 brand"><a href = "index.php">Movement Source</a> <span> Pilates Studio</span><span>1509 E.Passyunk Ave - Philadelphia - PA</span></div>
-            <div class="col-sm-3 login">
-                    <?php 
-                        if(isset($_SESSION['login_user'])) {
-                        echo "Welcome, " . $_SESSION['login_user']; 
-                        echo "<br /><a href = 'logout.php'>Sign Out</a>";
-                    }
-                    else echo "<button class='contact-btn'>Contact Us</button>
-            </div>"
-                 ?>
+          
+            <div class="col-sm-3"> 
+                <div class="contact-icons">
+                    <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
+                    <a class="social-icon" id="address" href="contact.php#map">Visit</a>
+                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    </div>
             </div>
-            <!-- <div class="col-sm-3 contact"> 
-
-            <button class="contact-btn">Contact Us</button>
-            </div> -->
              
         </div>
 
@@ -147,9 +141,13 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
         <div id="sidebar-wrapper">
             
-            <ul class="collapse navbar-collapse sidebar-nav" style = "display:none" id="services-menu-collapse">
+            <ul class="collapse navbar-collapse sidebar-nav" id="services-menu-collapse">
                  <h1 class="brand-name">Services</h1>
                  <hr>
+                 <li>
+                    <a href="#datepicker">Request Appointment</a>
+                </li>
+
                 <li>
                     <a href="#1">Pilates Circuit Group Class</a>
                 </li>
@@ -437,18 +435,33 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 <footer>
         <div class="container">
             <div class="row">
-            <?php
-             if(!isset($_SESSION['login_user'])) {
-                        echo "<a href='welcome.php'>Admin Login</a>";
-                    }
-            ?>
+                <div class="col-lg-3 admin">
+                    <?php
+                     if(!isset($_SESSION['login_user'])) {
+                                echo "<a href='welcome.php'>Admin Login</a>";
+                            }
+                            else {
+                             echo "<span>Welcome, " . $_SESSION['login_user'] . "</span>"; 
+                             echo "<br /><a href = 'logout.php'>Sign Out</a>";
+                            }
+                    ?>
+
+                </div>
             
-                <div class="col-lg-12 text-center span-block">
+                <div class="col-lg-6 text-center span-block">
                   <span><a href="index.php">Movement Source Pilates Studio</a></span>
                   <span>Sweat Fitness 2nd Fl - 1509 E. Passyunk Ave - Phila PA 19147</span>
                   <span>info@movementsource.com</span>
                   <span id="copy">&copy;2017 Movement Source </span>
                 </div>
+
+                <div class="col-sm-3"> 
+                <div class="contact-icons">
+                    <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
+                    <a class="social-icon" id="address" href="contact.php#map">Visit</a>
+                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    </div>
+            </div>
 
             </div>
         </div>

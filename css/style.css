@@ -556,7 +556,7 @@ a.selected-time {
 }
 
 #nav-logo>a>img {
-    width:75px;
+    width:54px;
 }
 
 
@@ -761,29 +761,28 @@ A5622A - orange brown
 }
 .contact-icons>a:hover {
     opacity: 0.7;
-    color: white;
+    color: black;
 
 } 
 
 
 .contact-icons> #pen {
-    background-image:url('../img/social/pen.png');
+    background-image:url('../img/social/contact.png');
 }
 .contact-icons> #facebook {
-    background-image:url('../img/social/facebook(1).png');
+    background-image:url('../img/social/facebook.png');
 }
 .contact-icons> #address {
-    background-image:url('../img/social/house.png');
+    background-image:url('../img/social/address.png');
 }
 
 .admin>a, .admin>span {
-    color: lightgrey;
+    color: #E8F4F4;
 }
 
 .admin > a:hover {
     text-decoration: underline!important;
 }
-
 
 
 

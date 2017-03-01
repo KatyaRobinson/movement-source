@@ -299,11 +299,12 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                   <span id="copy">&copy;2017 Movement Source </span>
                 </div>
 
-                <div class="col-lg-3 contact-icons"> 
-                    <span class="social-icon" id="pen"></span>
-                    <span class="social-icon" id="address"></span>
-                    <span class="social-icon" id="facebook"></span>
-                    <span class="social-icon" id="instagram"></span>
+                <div class="col-sm-3"> 
+                <div class="contact-icons">
+                    <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
+                    <a class="social-icon" id="address" href="contact.php#map">Visit</a>
+                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    </div>
             </div>
 
             </div>
