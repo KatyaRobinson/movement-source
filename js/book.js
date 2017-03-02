@@ -77,7 +77,7 @@ $(document).ready(function(){
                  return [false, ""]
                   }
                 else {
-              var disabledDays = ["10-25-2013"];        
+              var disabledDays = [""];   // add if days need to be disabled     
               var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
               for (i = 0; i < disabledDays.length; i++) {
               if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {

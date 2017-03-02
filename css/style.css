@@ -614,7 +614,7 @@ textarea {
 }
 
 .groupClass::after {
-    content: "Group Class";
+    content: "Group";
     font-size: 10px;
     color: #A5622A;
     font-weight:bold;
@@ -629,7 +629,7 @@ textarea {
 }
 
 .matClass::after {
-    content: "Mat Class";
+    content: "Mat";
     font-size: 10px;
     color: #228422;
     font-weight:bold;

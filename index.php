@@ -55,7 +55,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="contact-icons">
                     <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
                     <a class="social-icon" id="address" href="contact.php#map">Visit</a>
-                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    <a class="social-icon" id="facebook" href="https://www.facebook.com/movementsource/">Facebook</a>
                     </div>
             </div>
              
@@ -264,7 +264,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="col-md-6">
                     <p>Pilates was developed by Joseph Pilates and brought to America in the late 1920’s and was originally called “Contrology.”  Traditional Pilates is a specific series of exercises performed on the Pilates Equipment and Pilates Mat to find equal amounts of stretch and strength in the body.  Exercises are executed in a precise form and alignment to uphold the ideas of control and efficiency.  The Pilates method focuses on mind - body balance that can be utilized during a Pilates session and throughout all aspects of life to enhance any activity.  Practiced regularly, Pilates can improve posture, strength, flexibility and stability.</p>
                 </div>
-                  <a href="http://www.pilates.com/BBAPP/V/pilates/index.php" target="_blanc"><button class="btn readMore">Read more on pilates.com</button></a>
+                  <a href="http://www.pilates.com" target="_blanc"><button class="btn readMore">Read more on pilates.com</button></a>
             </div>
         </div>  
 
@@ -303,7 +303,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="contact-icons">
                     <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
                     <a class="social-icon" id="address" href="contact.php#map">Visit</a>
-                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    <a class="social-icon" id="facebook" href="https://www.facebook.com/movementsource/">Facebook</a>
                     </div>
             </div>
 

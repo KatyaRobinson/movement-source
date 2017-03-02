@@ -59,7 +59,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="contact-icons">
                     <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
                     <a class="social-icon" id="address" href="contact.php#map">Visit</a>
-                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    <a class="social-icon" id="facebook" href="https://www.facebook.com/movementsource/">Facebook</a>
                     </div>
             </div>
              
@@ -459,7 +459,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="contact-icons">
                     <a class="social-icon" id="pen" href="contact.php#contact-form">Contact</a>
                     <a class="social-icon" id="address" href="contact.php#map">Visit</a>
-                    <a class="social-icon" id="facebook" href="#">Facebook</a>
+                    <a class="social-icon" id="facebook" href="https://www.facebook.com/movementsource/">Facebook</a>
                     </div>
             </div>
 
