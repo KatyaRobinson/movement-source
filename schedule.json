@@ -1,39 +1,39 @@
 {"schedule":{
 			"monday": [
-					{"classType": "open",
+					{"classType": "regular",
 					"timeSlot": "10:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "10:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:0AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "1:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "2:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "5:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "5:30PM"		
 					},
 					{"classType": "groupClass",
@@ -45,41 +45,41 @@
 					{"classType": "open",
 					"timeSlot": "6:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "6:30AM"		
 					},
 					{"classType": "groupClass",
 					"timeSlot": "7:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:0AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "1:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "2:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:30PM"		
 					},
 					{"classType": "matClass",
 					"timeSlot": "6:15PM"		
 					},
 
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30PM"		
 					}
 
@@ -88,40 +88,40 @@
 					{"classType": "open",
 					"timeSlot": "6:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "6:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "9:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:0AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "1:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "2:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30PM"		
 					}
 
@@ -131,40 +131,40 @@
 					{"classType": "open",
 					"timeSlot": "6:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "6:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "9:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:0AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "1:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "2:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30PM"		
 					}
 						],
@@ -173,40 +173,40 @@
 					{"classType": "open",
 					"timeSlot": "6:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "6:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "9:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:0AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "1:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "2:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30PM"		
 					}
 						],
@@ -214,10 +214,10 @@
 					{"classType": "open",
 					"timeSlot": "6:00AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "6:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30AM"		
 					},
 					{"classType": "groupClass",
@@ -226,28 +226,28 @@
 					{"classType": "runner",
 					"timeSlot": "11:0AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "11:30AM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "12:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "1:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "2:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:00PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "4:30PM"		
 					},
-					{"classType": "personal",
+					{"classType": "regular",
 					"timeSlot": "7:30PM"		
 					}
 

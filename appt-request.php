@@ -9,8 +9,9 @@ $email = $_POST['email'];
 $message = $_POST['message'];
 $date = $_POST['date'];
 $time = $_POST['time'];
-$sql = "INSERT INTO apptrequests (name, phone, email, message, apptdate, appttime)
-        VALUES ('$name', '$phone', '$email', '$message', '$date', '$time')";
+$classType = $_POST['classType'];
+$sql = "INSERT INTO apptrequests (name, phone, email, message, apptdate, appttime, classType)
+        VALUES ('$name', '$phone', '$email', '$message', '$date', '$time', '$classType')";
 
 	$to = "katya.gurina@yahoo.com"; // owner's email address
     $from = $_POST['email']; // sender's Email address

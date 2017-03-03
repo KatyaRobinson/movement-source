@@ -110,8 +110,8 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
                     <?php 
                         if(isset($_SESSION['login_user'])) {
                        
-                        echo "<li><a href='welcome.php'>Appointments</a></li> " ;
-                         echo "<li><a href='welcome.php'>Mail</a></li></ul>";
+                        echo "<li><a href='appointments.php'>Appointments</a></li> " ;
+                         echo "<li><a href='appointments.php'>Mail</a></li></ul>";
                     }
                  ?>
                 </ul>
@@ -128,7 +128,7 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
 	<div class="container">
 	<div class="row">
    <div class="box">
-   <a href = 'welcome.php' class="btn" id="back-btn">Back to Appointments</a>
+   <a href = 'appointments.php' class="btn" id="back-btn">Back to Appointments</a>
    <h2 class="text-center">Appointment Request</h2>
     <hr>
 
@@ -145,8 +145,9 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
         $email = $row['email'];
         $appttime = $row['appttime'];
         $apptdate = $row['apptdate'];
+        $classType = $row['classType'];
 
-        echo "<ul class='col-sm-12 request text-center'><li><strong>Name:</strong> " . $name . "</li> <li><strong>Phone number: </strong>" . $phone  . "</li> <li><strong>Email: </strong>" . $email . "</li><li><strong>Message: </strong>" . $message . "</li><li><strong>Date: </strong>" . $apptdate . "</li><li><strong>Time:</strong> " . $appttime . "</li><li><strong>Status: </strong><span id='statusAppt'></span></li> </ul>";
+        echo "<ul class='col-sm-12 request text-center'><li><strong>Name:</strong> " . $name . "</li> <li><strong>Phone number: </strong>" . $phone  . "</li> <li><strong>Email: </strong>" . $email . "</li><li><strong>Message: </strong>" . $message . "</li><li><strong>Date: </strong>" . $apptdate . "</li><li><strong>Time:</strong> " . $appttime . "</li><li><strong>Date: </strong>" . $apptdate . "</li><li><strong>Class type: </strong>" . $classType . "</li> </ul>";
         echo "<p id='status' class='hidden'>" . $row['status'] . "</p>";
        
 
@@ -286,7 +287,7 @@ echo "<p id='id' class='hidden'>" . $id . "</p>";
                 <div class="col-lg-3 admin">
                     <?php
                      if(!isset($_SESSION['login_user'])) {
-                                echo "<a href='welcome.php'>Admin Login</a>";
+                                echo "<a href='appointments.php'>Admin Login</a>";
                             }
                             else {
                              echo "<span>Welcome, " . $_SESSION['login_user'] . "</span>"; 

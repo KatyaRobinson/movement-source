@@ -38,8 +38,9 @@ $(function() {
 
   var date = DATE;
   var time = TIME;
+  var classType = CLASSTYPE;
 
-  var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message + '&date=' + date + '&time=' + time;
+  var dataString = 'name=' + name + '&phone=' + phone + '&email=' + email + '&message=' + message + '&date=' + date + '&time=' + time + '&classType=' + classType;
   $.ajax({
     url: 'appt-request.php',
     type: 'POST',

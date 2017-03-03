@@ -2,26 +2,29 @@ $(document).ready(function(){
          DATE = '';
          DAYNAME = '';
          TIME = '';
-
+// initiate the Datepicker function
           Datepicker();
+// on service page hide customer info form until user chooses date and time for appointment
           $("#customer-info").css("opacity", "0");
+// make sure that there is no values remaining in the customer info form
           resetForm();
 
 
-          // set calensdar to display all dates
+// set calensdar to display all dates
           $("#selectservice").val(1);
 
-          // hide  nav logo which only appears when nav gets stuck to top on scrolling down
+// hide  nav logo which only appears when nav gets stuck to top on scrolling down
           $("#nav-logo").hide();
 
-          // slide sidebar
+// slide sidebar
            $(".sidebar-nav").delay(300).show("slide", { direction: "left" }, 200);
 
+// controls carousel on home screen
            $('.carousel').carousel({
              interval: 5000 //changes the speed
            });
 
-        //function to display calandar and time slots avaiable to appointent
+//function to display calandar and time slots avaiable to appointent
           var currentDate = '';
           var dayName = '';
 
@@ -29,42 +32,41 @@ $(document).ready(function(){
               $( "#datepicker" ).datepicker({
                minDate: 2,
                maxDate: "+3M",
-                /*dateFormat: "DD, d MM, yy",*/
-                dateFormat: "yy-mm-dd",
-                onSelect: function(date) {
-              $(".dayOfWeek").hide();
-              $('#timeLabel').html("Select Time");
-               var currentDate = date;
-               var curDate = $(this).datepicker('getDate');
-               dayName = $.datepicker.formatDate('DD', curDate);
-               DAY = $.datepicker.formatDate('d', curDate);
-               MONTH = $.datepicker.formatDate('MM', curDate);
-               YEAR = $.datepicker.formatDate('yy', curDate);
-               DATE = date;
+              dateFormat: "yy-mm-dd",
+              onSelect: function(date) {
+                  $(".dayOfWeek").hide();
+                  $('#timeLabel').html("Select Time");
+                  var currentDate = date;
+                  var curDate = $(this).datepicker('getDate');
+                   dayName = $.datepicker.formatDate('DD', curDate);
+                  DAY = $.datepicker.formatDate('d', curDate);
+                  MONTH = $.datepicker.formatDate('MM', curDate);
+                  YEAR = $.datepicker.formatDate('yy', curDate);
+                  DATE = date;
                //updates the date if user chooses a different one
-              $("#selected-options").html("");
+                  $("#selected-options").html("");
                //$("#selected-options").html("You have selected " + DATE);
-               DAYNAME = dayName;
+                  DAYNAME = dayName;
               // $("#chosenDate").html("date is " + date + " day of week is " + dayName);
-               switch (dayName) {
-                case "Monday": getSchedule("monday");
-                                break;
-                case "Tuesday": getSchedule("tuesday");
-                                break;
-                case "Wednesday" :getSchedule("wednesday");
-                                break;
-                case "Thursday" :getSchedule("thursday");
-                                break;
-                case "Friday" :getSchedule("friday");
-                                break;
-                case "Saturday" :getSchedule("saturday");
-                                break;
-                case "Sunday" : getSchedule("sunday");
-                                break;
+                 switch (dayName) {
+                  case "Monday": getSchedule("monday");
+                                  break;
+                  case "Tuesday": getSchedule("tuesday");
+                                  break;
+                  case "Wednesday" :getSchedule("wednesday");
+                                  break;
+                  case "Thursday" :getSchedule("thursday");
+                                  break;
+                  case "Friday" :getSchedule("friday");
+                                  break;
+                  case "Saturday" :getSchedule("saturday");
+                                  break;
+                  case "Sunday" : getSchedule("sunday");
+                                  break;
 
                }
-
-               $("body, html").animate({ 
+                // scroll down on select so change focus
+                 $("body, html").animate({ 
                      scrollTop: $('#schedule').offset().top - 200
                      }, 300);
                
@@ -72,71 +74,72 @@ $(document).ready(function(){
                 },
 
                beforeShowDay: function(day) {
-                 var newday = day.getDay();
-                  if (newday == 0) {
-                 return [false, ""]
-                  }
-                else {
-              var disabledDays = [""];   // add if days need to be disabled     
-              var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
-              for (i = 0; i < disabledDays.length; i++) {
-              if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
-               return [false];
-              }
-            }
-          return [true];
-            }
-              } 
-              });
-                };
+                  var newday = day.getDay();
+                    if (newday == 0) {
+                      return [false, ""]
+                    }
+                    else {
+                      var disabledDays = [""];   // add if days need to be disabled     
+                      var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
+                      for (i = 0; i < disabledDays.length; i++) {
+                        if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
+                          return [false];
+                        }
+                      }
+                    return [true];
+                        }
+                                            } 
+                });
+               };
 
 
 
 
 // show mon, tue, and wed only
   function showGroupClassDays(day){
-                    var newday = day.getDay();
-                  if (newday == 0 || newday == 4 || newday == 5 || newday == 5 || newday == 6) {
-                 return [false, ""]
+    var newday = day.getDay();
+    if (newday == 0 || newday == 4 || newday == 5 || newday == 5 || newday == 6) {
+          return [false, ""]
                   }
-                else {
-              var disabledDays = ["10-25-2013"];        
-              var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
-              for (i = 0; i < disabledDays.length; i++) {
-              if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
-               return [false];
-              }
+    else {  
+    var disabledDays = ["10-25-2013"];         
+        var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
+        for (i = 0; i < disabledDays.length; i++) {
+        if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
+            return [false];
+        }
             }
-          return [true];
-            }
-              } 
+        return [true];
+           }
+            };
+
 // show tue only
 function showMatClassDays(day){
-                    var newday = day.getDay();
-                  if (newday == 0 || newday == 1|| newday == 3|| newday == 4 || newday == 5 || newday == 5 || newday == 6) {
-                 return [false, ""]
-                  }
-                else {
-              var disabledDays = ["10-25-2013"];        
-              var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
-              for (i = 0; i < disabledDays.length; i++) {
-              if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
-               return [false];
-              }
-            }
-          return [true];
-            }
-              } 
+  var newday = day.getDay();
+  if (newday == 0 || newday == 1|| newday == 3|| newday == 4 || newday == 5 || newday == 5 || newday == 6) {
+      return [false, ""]
+      }
+  else {
+    var disabledDays = ["10-25-2013"];     
+      var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
+      for (i = 0; i < disabledDays.length; i++) {
+          if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
+          return [false];
+          }
+        }
+        return [true];
+          }
+             } 
 
 
 //show all days
 function showAllDays(day){
-                    var newday = day.getDay();
-                  if (newday == 0) {
-                 return [false, ""]
-                  }
-                else {
-              var disabledDays = ["10-25-2013"];        
+  var newday = day.getDay();
+  if (newday == 0) {
+    return [false, ""]
+           }
+  else {
+      var disabledDays = ["10-25-2013"];        
               var m = day.getMonth(), d = day.getDate(), y = day.getFullYear();
               for (i = 0; i < disabledDays.length; i++) {
               if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1) {
@@ -149,68 +152,61 @@ function showAllDays(day){
 
 
     //function to stick navbar to top when scrolling
-          $(window).scroll(function () {
-          
-        if ($(window).scrollTop() > 143) {
+  $(window).scroll(function () { 
+     if ($(window).scrollTop() > 143) {
           $('.navbar-default').addClass('navbar-fixed-top');
-
-            if($(window).width() > 800){
+          if($(window).width() > 800){
                $("#nav-logo").show('slow'); 
              }
         }
-        if ($(window).scrollTop() < 144) {
+     if ($(window).scrollTop() < 144) {
           $('.navbar-default').removeClass('navbar-fixed-top');
           $("#nav-logo").hide('fast');
         }
   });
 
-        // change padding of wrapper on load depending on the window width
-          $(function(){
+  // change padding of wrapper on load depending on the window width
+ $(function(){
             Resize();
+         });
+
+// move container on page resize to accomodate for sidevar menu
+  $(window).resize(function(){
+            Resize();
+
           });
 
-    // move container on page resize to accomodate for sidevar menu
-          $(window).resize(function(){
-            Resize();
-
-          });
-
-          var Resize = function(){
-            var $windowWidth = $(window).width();
-             var wrapper = $("#wrapper");
-             if ($windowWidth < 1670 && $windowWidth > 761){
-              wrapper.css("padding-left", 250);
-            }
-
-            else if($windowWidth > 1670 || $windowWidth < 761){
-              wrapper.css("padding-left", 0);
+  var Resize = function(){
+    var $windowWidth = $(window).width();
+    var wrapper = $("#wrapper");
+    if ($windowWidth < 1670 && $windowWidth > 761){
+      wrapper.css("padding-left", 250);
+      }
+    else if($windowWidth > 1670 || $windowWidth < 761){
+      wrapper.css("padding-left", 0);
             }
           }
 
-
-
   // Scrolls down to the calendar when button is pressed on Services page
-          $(function(){
-
-                // when the Secure My Appt button is clicked 
-                $(".aptRequest").click(function(){
-                $("body, html").animate({ 
-                     scrollTop: $('#calendar').offset().top-100
+  $(function(){
+ // when the Secure My Appt button is clicked 
+      $(".aptRequest").click(function(){
+          $("body, html").animate({ 
+          scrollTop: $('#calendar').offset().top-100
                      }, 300);
-                // show group class schedule
-                 if($(this).attr('id') == "group-btn") {
-                  //picks correct option from the calendar services dropdown menu
-                  $("#selectservice").val(2);
-                   var val = getValue();
-                    updateCalendar(val);
-
+          // show group class schedule
+            if($(this).attr('id') == "group-btn") {
+          //picks correct option from the calendar services dropdown menu
+            $("#selectservice").val(2);
+            var val = getValue();
+            updateCalendar(val);
                   }
-                  // show private classes
-                  else if($(this).attr('id') == "private-btn") {
-                     $("#selectservice").val(3).selectmenu('refresh');
-                   }
-                   else {
-                    $("#selectservice").val(1).selectmenu('refresh');
+          // show private classes
+          else if($(this).attr('id') == "private-btn") {
+          $("#selectservice").val(3).selectmenu('refresh');
+               }
+          else {
+          $("#selectservice").val(1).selectmenu('refresh');
                    }
                   
             });
@@ -220,8 +216,8 @@ function showAllDays(day){
 
 
  $("#selectservice").change(function(){
-  var val = getValue();
-  updateCalendar(val);
+    var val = getValue();
+    updateCalendar(val);
  });
 
 function updateCalendar(val){
@@ -233,31 +229,26 @@ function updateCalendar(val){
   }
 }
 
-
-
   // disable days to see which days available for particular classes
   function getValue(){
-   var val = $("#selectservice option:selected").val();
-   return val;
-  
+    var val = $("#selectservice option:selected").val();
+    return val;
   }
 
-
-
    $(function() {
-              $('a[href*="#"]:not([href="#"])').click(function() {
-                if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                  var target = $(this.hash);
-                  // target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                  if (target.length) {
-                    $('html, body').animate({
-                      scrollTop: target.offset().top - 100
+      $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          // target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+          $('html, body').animate({
+          scrollTop: target.offset().top - 100
                     }, 300);
-                    return false;
-                  }
-                }
-              });
-            });
+                  return false;
+              }
+            }
+          });
+        });
 
 // makes sidebar list item "active" on click and press
 
@@ -275,12 +266,6 @@ function updateCalendar(val){
          menu = target;
         $target = $(target);
               
-       /*$('html, body').stop().animate({
-            'scrollTop': $target.offset().top+2
-        }, 600, function () {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
-        });*/
     });
 
 function onScroll(event){
@@ -297,8 +282,6 @@ function onScroll(event){
         }
     });
 }
-
-
 
        
 // the "bring me to top" arrow
@@ -321,13 +304,12 @@ $(function(){
 
 
 
-
-      // pull info from schedule.json asd displays available time depending on day of week
+// pull info from schedule.json asd displays available time depending on day of week
      function getSchedule(dayWeek){
       $("#schedule").html = "";
       var day = dayWeek;
-    $.getJSON('schedule.json', function(data) {
-    var output = "<ul>";
+       $.getJSON('schedule.json', function(data) {
+        var output = "<ul>";
 
         switch(day) {
           case "monday": 
@@ -389,9 +371,7 @@ $(function(){
 
       }
 
-      function displaySelectedDay(){
-        $("#selected-options").html("You have selected <strong>" + DAYNAME + ', ' + DAY + ' ' + MONTH + ' ' + YEAR + ', ' + TIME + "</strong>");
-      }
+     
 
 function resetForm(){
    $(this).closest('form').find("input[type=text], textarea").val('');
@@ -404,7 +384,10 @@ $(function(){
      $("#schedule ul a").removeClass("selected-time");
      $(this).addClass("selected-time");
      var classType = $("#selectservice option:selected").text();
-    TIME = $(this).text();
+     TIME = $(this).text();
+     CLASSTYPE = $(this).attr('class').split(' ')[0];
+
+      
        $("#customer-info").css("opacity", "1");
         $("body, html").animate({ 
                      scrollTop: $('#schedule').offset().top - 200
@@ -418,7 +401,9 @@ $(function(){
      
 });
 
-
+ function displaySelectedDay(){
+        $("#selected-options").html("You have selected <strong>" + DAYNAME + ', ' + DAY + ' ' + MONTH + ' ' + YEAR + ', ' + TIME + ', ' + CLASSTYPE + " class </strong>");
+      }
 
 
 });   

@@ -106,8 +106,8 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                     <?php 
                         if(isset($_SESSION['login_user'])) {
                        
-                        echo "<li><a href='welcome.php'>Appointments</a></li> " ;
-                         echo "<li><a href='welcome.php'>Mail</a></li></ul>";
+                        echo "<li><a href='appointments.php'>Appointments</a></li> " ;
+                         echo "<li><a href='appointments.php'>Mail</a></li></ul>";
                     }
                  ?>
                 </ul>
@@ -213,7 +213,7 @@ $_SESSION['url'] = $_SERVER['REQUEST_URI'];
                 <div class="col-lg-3 admin">
                     <?php
                      if(!isset($_SESSION['login_user'])) {
-                                echo "<a href='welcome.php'>Admin Login</a>";
+                                echo "<a href='appointments.php'>Admin Login</a>";
                             }
                             else {
                              echo "<span>Welcome, " . $_SESSION['login_user'] . "</span>"; 
